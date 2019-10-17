@@ -6,13 +6,13 @@ public class MedicalCertificate  implements java.io.Serializable{
     //private String healthInstitution;
     //private LocalDate expirationDate;
 
-    private Boolean allowed;
+    private boolean allowed;
 
     public MedicalCertificate(Boolean allowed) {
         this.allowed = allowed;
     }
 
-    public Boolean getAllowed() {
+    public boolean getAllowed() {
         return allowed;
     }
 

@@ -8,7 +8,7 @@ public class Entity {
     public Entity() {
         this.id = IdGenerator.getNewId();
     }
- 
+
     public int getId() {
         return this.id;
     }

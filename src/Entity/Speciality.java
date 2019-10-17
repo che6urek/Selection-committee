@@ -7,27 +7,30 @@ import java.util.ArrayList;
 public class Speciality {
 
     /* TODO Add groups
-    *       Add free and paid places*/
+    *       Add free and paid places
+    *       implement CRUD*/
 
     private String name;
     private String facultyName;
     //private int paidPlaces;
     //private int freePlaces;
     private int places;
+    private int code;
     private String[] requiredSubjects;
 
     //private ArrayList<ArrayList<Student>> groups;
     private ArrayList<Student> students;
 
-    public Speciality(String name, String facultyName, int places, String[] requiredSubjects) {
+    public Speciality(String name, String facultyName, int places, String[] requiredSubjects, int code) {
         this.name = name;
         this.facultyName = facultyName;
         this.places = places;
         this.requiredSubjects = requiredSubjects;
         students = new ArrayList<Student>();
+        this.code = code;
     }
 
-    public Boolean AddStudent(Student student){
+    public boolean AddStudent(Student student){
         if(students.size() < places)
         {
             students.add(student);
@@ -36,7 +39,7 @@ public class Speciality {
         return false;
     }
 
-    public Boolean AddStudent(ArrayList<Student> enrolledStudents)
+    public boolean AddStudent(ArrayList<Student> enrolledStudents)
     {
         if(enrolledStudents.size() + students.size() < places)
         {
@@ -44,6 +47,7 @@ public class Speciality {
             return true;
         }
         return false;
+
     }
 
     public String getName() {
@@ -84,5 +88,13 @@ public class Speciality {
 
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 }

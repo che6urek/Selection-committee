@@ -2,12 +2,14 @@ package Entity.Person;
 
 import Entity.Documents.PersonalData;
 
+//TODO make necessary or remove
+
 public class Student extends Person {
 
     private int groupNo;
     //private int ticketNo;
 
-    protected Student(PersonalData personalData, String specialtyName, int groupNo, int id) {
+    public Student(PersonalData personalData, String specialtyName, int groupNo) {
         super(personalData, specialtyName);
         this.groupNo = groupNo;
     }

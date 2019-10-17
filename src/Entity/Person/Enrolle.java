@@ -12,6 +12,7 @@ public class Enrolle extends Person implements java.io.Serializable {
     private ArrayList<CTCertificate> ctCertificates;
     private AcademicCertificate academicCertificate;
     private MedicalCertificate medicalCertificate;
+    private int TotalMark;
 
     public Enrolle(PersonalData personalData, String specialtyName, ArrayList<CTCertificate> ctCertificates,
                    AcademicCertificate academicCertificate, MedicalCertificate medicalCertificate) {
@@ -20,6 +21,10 @@ public class Enrolle extends Person implements java.io.Serializable {
         this.ctCertificates = ctCertificates;
         this.academicCertificate = academicCertificate;
         this.medicalCertificate = medicalCertificate;
+        TotalMark = academicCertificate.getAverageMark();
+        for (CTCertificate ct: ctCertificates) {
+            TotalMark += ct.getMark();
+        }
     }
 
     public Boolean getEnrolled() {
@@ -52,5 +57,13 @@ public class Enrolle extends Person implements java.io.Serializable {
 
     public void setMedicalCertificate(MedicalCertificate medicalCertificate) {
         this.medicalCertificate = medicalCertificate;
+    }
+
+    public int getTotalMark() {
+        return TotalMark;
+    }
+
+    public void setTotalMark(int totalMark) {
+        TotalMark = totalMark;
     }
 }
