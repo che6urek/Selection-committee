@@ -1,9 +1,9 @@
-package com.by.evgeny.selection.committee.Entity.CRUD;
+package com.by.evgeny.selection.committee.entity.crud;
 
-import com.by.evgeny.selection.committee.Data.EnrolleByMarkComparator;
-import com.by.evgeny.selection.committee.Entity.Documents.CTCertificate;
-import com.by.evgeny.selection.committee.Entity.Person.Enrolle;
-import com.by.evgeny.selection.committee.Entity.Speciality;
+import com.by.evgeny.selection.committee.entity.person.EnrolleByMarkComparator;
+import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
+import com.by.evgeny.selection.committee.entity.person.Enrolle;
+import com.by.evgeny.selection.committee.entity.Speciality;
 
 import java.util.ArrayList;
 import java.util.Optional;
@@ -15,7 +15,6 @@ public class Specialities implements CRUD<Speciality> {
 
     public Specialities () {
         specialities = new ArrayList<Speciality>();
-        //TODO fill list from file
     }
 
     @Override

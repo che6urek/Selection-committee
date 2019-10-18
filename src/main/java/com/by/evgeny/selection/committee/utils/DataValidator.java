@@ -1,4 +1,6 @@
-package com.by.evgeny.selection.committee.Data;
+package com.by.evgeny.selection.committee.utils;
+
+import com.by.evgeny.selection.committee.reader.TextDictionaryRead;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,22 +9,11 @@ import java.util.ArrayList;
 
 public class DataValidator {
 
-    private static ArrayList<String> subjects = ReadFile("subjects.txt");
-    private static ArrayList<String> specialities = ReadFile("specialities.txt");
-    private static ArrayList<String> faculties = ReadFile("faculties.txt");
+    private static ArrayList<String> subjects = TextDictionaryRead.ReadFile("Dictionaries/subjects.txt");
+    private static ArrayList<String> specialities = TextDictionaryRead.ReadFile("Dictionaries/specialities.txt");
+    private static ArrayList<String> faculties = TextDictionaryRead.ReadFile("Dictionaries/faculties.txt");
     private static final String WORD_REGEX = "[A-Za-zА-Яа-я]+";
     private static final String NAME_REGEX = "[A-Za-zА-Яа-я]+(([',. -])?[A-Za-zА-Яа-я]+)*$";
-
-    public static ArrayList<String> ReadFile(String fileName)
-    {
-        try {
-            return (ArrayList<String>) Files.readAllLines(Paths.get("Dictionaries/" + fileName));
-        }
-        catch (IOException ex) {
-            System.out.println(ex.getMessage());
-            return new ArrayList<String>();
-        }
-    }
 
     public static boolean checkWord(String word) {
         return word != null && word.matches(WORD_REGEX);
@@ -53,9 +44,9 @@ public class DataValidator {
     }
 
     public static void UpdateDictionaries() {
-        subjects = ReadFile("subjects.txt");
-        specialities = ReadFile("specialities.txt");
-        faculties = ReadFile("faculties.txt");
+        subjects = TextDictionaryRead.ReadFile("Dictionaries/subjects.txt");
+        specialities = TextDictionaryRead.ReadFile("Dictionaries/specialities.txt");
+        faculties = TextDictionaryRead.ReadFile("Dictionaries/faculties.txt");
     }
 
 }

@@ -1,8 +1,7 @@
-package com.by.evgeny.selection.committee.Entity.CRUD;
+package com.by.evgeny.selection.committee.entity.crud;
 
-import com.by.evgeny.selection.committee.Entity.Person.Enrolle;
+import com.by.evgeny.selection.committee.entity.person.Enrolle;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.stream.Collectors;

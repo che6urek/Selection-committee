@@ -1,16 +1,16 @@
 package com.by.evgeny.selection.committee;
 
-import com.by.evgeny.selection.committee.Data.DataValidator;
-import com.by.evgeny.selection.committee.Entity.CRUD.Enrollees;
-import com.by.evgeny.selection.committee.Entity.CRUD.Specialities;
-import com.by.evgeny.selection.committee.Entity.Documents.AcademicCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.CTCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.MedicalCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.PersonalData;
-import com.by.evgeny.selection.committee.Entity.Person.Enrolle;
-import com.by.evgeny.selection.committee.Entity.Speciality;
-import com.by.evgeny.selection.committee.Serialization.XmlEnrolleesWrite;
-import com.by.evgeny.selection.committee.Serialization.XmlException;
+import com.by.evgeny.selection.committee.utils.DataValidator;
+import com.by.evgeny.selection.committee.entity.crud.Enrollees;
+import com.by.evgeny.selection.committee.entity.crud.Specialities;
+import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
+import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
+import com.by.evgeny.selection.committee.entity.documents.MedicalCertificate;
+import com.by.evgeny.selection.committee.entity.documents.PersonalData;
+import com.by.evgeny.selection.committee.entity.person.Enrolle;
+import com.by.evgeny.selection.committee.entity.Speciality;
+import com.by.evgeny.selection.committee.writer.XmlEnrolleesWrite;
+import com.by.evgeny.selection.committee.exceptions.XmlException;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Main {
 
     /* TODO data validation
-    *       MVC
+    *       architecture
     *       UI
     *       javadoc
     *       serialization*/
@@ -27,9 +27,8 @@ public class Main {
         Enrollees enrollees = fillEnrollees();
         Specialities specs = fillSpecs();
         System.out.println(enrollees);
-        XmlEnrolleesWrite writer = new XmlEnrolleesWrite();
         try {
-            writer.Write(enrollees, "enrollees.xml");
+            XmlEnrolleesWrite.Write(enrollees, "enrollees.xml");
         }
         catch (XmlException e){
             System.out.println("error");

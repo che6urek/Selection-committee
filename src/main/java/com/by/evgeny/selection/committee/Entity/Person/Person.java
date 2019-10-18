@@ -1,9 +1,7 @@
-package com.by.evgeny.selection.committee.Entity.Person;
+package com.by.evgeny.selection.committee.entity.person;
 
-import com.by.evgeny.selection.committee.Entity.Documents.PersonalData;
-import com.by.evgeny.selection.committee.Entity.Entity;
-
-import java.io.Serializable;
+import com.by.evgeny.selection.committee.entity.documents.PersonalData;
+import com.by.evgeny.selection.committee.entity.Entity;
 
 public abstract class Person extends Entity {
     private PersonalData personalData;

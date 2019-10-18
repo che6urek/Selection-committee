@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.Entity.CRUD;
+package com.by.evgeny.selection.committee.entity.crud;
 
 import java.io.Serializable;
 import java.util.Optional;

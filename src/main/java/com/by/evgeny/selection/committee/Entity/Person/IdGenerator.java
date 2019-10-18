@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.Entity.Person;
+package com.by.evgeny.selection.committee.entity.person;
 
 public class IdGenerator {
     private static int id;

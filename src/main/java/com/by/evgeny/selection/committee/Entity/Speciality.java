@@ -1,7 +1,7 @@
-package com.by.evgeny.selection.committee.Entity;
+package com.by.evgeny.selection.committee.entity;
 
-import com.by.evgeny.selection.committee.Entity.CRUD.Enrollees;
-import com.by.evgeny.selection.committee.Entity.Person.Enrolle;
+import com.by.evgeny.selection.committee.entity.crud.Enrollees;
+import com.by.evgeny.selection.committee.entity.person.Enrolle;
 
 public class Speciality {
 

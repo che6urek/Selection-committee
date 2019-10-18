@@ -1,6 +1,4 @@
-package com.by.evgeny.selection.committee.Entity.Documents;
-
-import java.util.ArrayList;
+package com.by.evgeny.selection.committee.entity.documents;
 
 public class AcademicCertificate  implements java.io.Serializable{
     //private String educationalInstitution;

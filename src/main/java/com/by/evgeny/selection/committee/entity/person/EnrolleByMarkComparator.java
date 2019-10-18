@@ -1,6 +1,6 @@
-package com.by.evgeny.selection.committee.Data;
+package com.by.evgeny.selection.committee.entity.person;
 
-import com.by.evgeny.selection.committee.Entity.Person.Enrolle;
+import com.by.evgeny.selection.committee.entity.person.Enrolle;
 
 import java.util.Comparator;
 

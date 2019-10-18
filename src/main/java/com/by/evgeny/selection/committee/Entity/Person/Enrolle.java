@@ -1,11 +1,10 @@
-package com.by.evgeny.selection.committee.Entity.Person;
+package com.by.evgeny.selection.committee.entity.person;
 
-import com.by.evgeny.selection.committee.Entity.Documents.AcademicCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.CTCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.MedicalCertificate;
-import com.by.evgeny.selection.committee.Entity.Documents.PersonalData;
+import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
+import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
+import com.by.evgeny.selection.committee.entity.documents.MedicalCertificate;
+import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 

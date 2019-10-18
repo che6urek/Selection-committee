@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.Entity.Documents;
+package com.by.evgeny.selection.committee.entity.documents;
 
 public class MedicalCertificate  implements java.io.Serializable{
     //private String[] illnesses;
