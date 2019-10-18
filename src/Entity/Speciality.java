@@ -1,5 +1,7 @@
 package Entity;
 
+import Entity.CRUD.Enrollees;
+import Entity.Person.Enrolle;
 import Entity.Person.Student;
 
 import java.util.ArrayList;
@@ -18,19 +20,23 @@ public class Speciality {
     private int code;
     private String[] requiredSubjects;
 
+    private Enrollees enrolled;
+    //private ArrayList<Enrolle> enrolled;
     //private ArrayList<ArrayList<Student>> groups;
-    private ArrayList<Student> students;
+    //private ArrayList<Student> students;
 
     public Speciality(String name, String facultyName, int places, String[] requiredSubjects, int code) {
         this.name = name;
         this.facultyName = facultyName;
         this.places = places;
         this.requiredSubjects = requiredSubjects;
-        students = new ArrayList<Student>();
+        enrolled = new Enrollees();
+        //students = new ArrayList<Student>();
+
         this.code = code;
     }
 
-    public boolean AddStudent(Student student){
+    /*public boolean AddStudent(Student student){
         if(students.size() < places)
         {
             students.add(student);
@@ -48,6 +54,15 @@ public class Speciality {
         }
         return false;
 
+    }*/
+
+    public boolean Enrolle(Enrolle en){
+        if(enrolled.getEnrollees().size() < places)
+        {
+            enrolled.add(en);
+            return true;
+        }
+        return false;
     }
 
     public String getName() {
@@ -82,12 +97,20 @@ public class Speciality {
         this.requiredSubjects = requiredSubjects;
     }
 
-    public ArrayList<Student> getStudents() {
+    /*public ArrayList<Student> getStudents() {
         return students;
     }
 
     public void setStudents(ArrayList<Student> students) {
         this.students = students;
+    }*/
+
+    public Enrollees getEnrolled() {
+        return enrolled;
+    }
+
+    public void setEnrolled(Enrollees enrolled) {
+        this.enrolled = enrolled;
     }
 
     public int getCode() {

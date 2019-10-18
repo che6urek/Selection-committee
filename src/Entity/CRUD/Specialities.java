@@ -77,9 +77,9 @@ public class Specialities implements CRUD<Speciality> {
                     .orElse(null);
             if(spec != null)
                 if(CheckSubjects(enrolle.getCtCertificates(), spec.getRequiredSubjects()) && !enrolle.getEnrolled()) {
-                    spec.AddStudent(new Student(enrolle.getPersonalData(),
-                            enrolle.getSpecialtyName(), spec.getCode() * 100 + 1));
                     enrolle.setEnrolled(true);
+                    //spec.AddStudent(new Student(enrolle.getPersonalData(), enrolle.getSpecialtyName(), spec.getCode() * 100 + 1));
+                    spec.Enrolle(enrolle);
                 }
         }
     }

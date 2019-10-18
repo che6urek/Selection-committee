@@ -11,10 +11,12 @@ public class IdGenerator {
         return ++id;
     }
 
-    public static void init(int i){
+    public static void init(int currId){
         if (id == 0){
-            id = i;
+            id = currId;
         }
     }
+
+
 
 }
