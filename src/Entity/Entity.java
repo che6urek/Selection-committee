@@ -12,4 +12,9 @@ public class Entity {
     public int getId() {
         return this.id;
     }
+
+    @Override
+    public String toString() {
+        return "Id: " + id;
+    }
 }

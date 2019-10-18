@@ -68,4 +68,11 @@ public class Enrollees implements CRUD<Enrolle>, java.io.Serializable {
     public ArrayList<Enrolle> getEnrollees() {
         return enrollees;
     }
+
+    @Override
+    public String toString() {
+        return enrollees.stream()
+                .map(Enrolle::toString)
+                .collect(Collectors.joining(System.lineSeparator() + System.lineSeparator()));
+    }
 }

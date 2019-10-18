@@ -32,12 +32,10 @@ public abstract class Person extends Entity  implements java.io.Serializable {
         return personalData.name + " " + personalData.surname + " " + personalData.patronymic;
     }
 
-    //TODO data validation
-    public void setFullName(String fullName){
-        var temp = fullName.split(" ");
-        if(temp.length == 3)
-        {
-            personalData = new PersonalData(temp[0], temp[1], temp[2]);
-        }
+    @Override
+    public String toString() {
+        return super.toString() + System.lineSeparator()
+                + getFullName() + System.lineSeparator()
+                + "Speciality: " + specialtyName;
     }
 }

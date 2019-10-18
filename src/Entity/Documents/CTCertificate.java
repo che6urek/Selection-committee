@@ -27,4 +27,9 @@ public class CTCertificate  implements java.io.Serializable{
     public void setMark(int mark) {
         this.mark = mark;
     }
+
+    @Override
+    public String toString() {
+        return subject + ": " + mark;
+    }
 }

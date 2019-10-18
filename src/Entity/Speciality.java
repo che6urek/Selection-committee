@@ -120,4 +120,19 @@ public class Speciality {
     public void setCode(int code) {
         this.code = code;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder result = new StringBuilder(facultyName + " " + name + System.lineSeparator()
+                + "Code: " + code + System.lineSeparator()
+                + "Places: " + places + System.lineSeparator()
+                + "Required subjects: ");
+        if(requiredSubjects.length > 0)
+            result.append(requiredSubjects[0]);
+        for (int i = 1; i < requiredSubjects.length; i++) {
+            result.append(", ").append(requiredSubjects[i]);
+        }
+        result.append(System.lineSeparator()).append("Enrolled: ").append(enrolled.getEnrollees().size());
+        return result.toString();
+    }
 }

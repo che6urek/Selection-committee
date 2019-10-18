@@ -94,5 +94,11 @@ public class Specialities implements CRUD<Speciality> {
         return true;
     }
 
+    @Override
+    public String toString() {
+        return specialities.stream()
+                .map(Speciality::toString)
+                .collect(Collectors.joining(System.lineSeparator() + System.lineSeparator()));
+    }
 
 }

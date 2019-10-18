@@ -19,4 +19,9 @@ public class MedicalCertificate  implements java.io.Serializable{
     public void setAllowed(Boolean allowed) {
         this.allowed = allowed;
     }
+
+    @Override
+    public String toString() {
+        return "Allowed: " + allowed;
+    }
 }

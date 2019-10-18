@@ -51,7 +51,7 @@ public class Main {
     private static Enrollees fillEnrollees()
     {
         Enrollees en = new Enrollees();
-        AcademicCertificate ac = new AcademicCertificate(new int[] {10});
+        AcademicCertificate ac = new AcademicCertificate(new int[] {10, 9, 8});
         MedicalCertificate mc = new MedicalCertificate(true);
         for(int i = 5; i > 0; i--)
         {

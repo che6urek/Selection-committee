@@ -38,4 +38,11 @@ public class PersonalData  implements java.io.Serializable{
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
     }
+
+    @Override
+    public String toString() {
+        return  "Name: " + name + System.lineSeparator() +
+                "Surname: " + surname + System.lineSeparator() +
+                "Patronymic: " + patronymic;
+    }
 }

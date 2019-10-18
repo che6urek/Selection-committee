@@ -6,13 +6,14 @@ import Entity.Documents.MedicalCertificate;
 import Entity.Documents.PersonalData;
 
 import java.util.ArrayList;
+import java.util.stream.Collectors;
 
 public class Enrolle extends Person implements java.io.Serializable {
     private Boolean enrolled = false;
     private ArrayList<CTCertificate> ctCertificates;
     private AcademicCertificate academicCertificate;
     private MedicalCertificate medicalCertificate;
-    private int TotalMark;
+    private int totalMark;
 
     public Enrolle(PersonalData personalData, String specialtyName, ArrayList<CTCertificate> ctCertificates,
                    AcademicCertificate academicCertificate, MedicalCertificate medicalCertificate) {
@@ -21,9 +22,9 @@ public class Enrolle extends Person implements java.io.Serializable {
         this.ctCertificates = ctCertificates;
         this.academicCertificate = academicCertificate;
         this.medicalCertificate = medicalCertificate;
-        TotalMark = academicCertificate.getAverageMark();
+        totalMark = academicCertificate.getAverageMark();
         for (CTCertificate ct: ctCertificates) {
-            TotalMark += ct.getMark();
+            totalMark += ct.getMark();
         }
     }
 
@@ -60,10 +61,21 @@ public class Enrolle extends Person implements java.io.Serializable {
     }
 
     public int getTotalMark() {
-        return TotalMark;
+        return totalMark;
     }
 
     public void setTotalMark(int totalMark) {
-        TotalMark = totalMark;
+        this.totalMark = totalMark;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + System.lineSeparator()
+                + medicalCertificate.toString() + System.lineSeparator()
+                + academicCertificate.toString() + "; "
+                + ctCertificates.stream()
+                    .map(CTCertificate::toString)
+                    .collect(Collectors.joining("; ")) + System.lineSeparator()
+                + "Total mark: " + totalMark;
     }
 }
