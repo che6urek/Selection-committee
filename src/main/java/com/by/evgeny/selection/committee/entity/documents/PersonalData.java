@@ -15,6 +15,10 @@ public class PersonalData  implements java.io.Serializable{
         this.patronymic = patronymic;
     }
 
+    public PersonalData() {
+
+    }
+
     public String getName() {
         return name;
     }

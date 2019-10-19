@@ -2,6 +2,7 @@ package com.by.evgeny.selection.committee.entity.person;
 
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 import com.by.evgeny.selection.committee.entity.Entity;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 public abstract class Person extends Entity {
     private PersonalData personalData;
@@ -10,6 +11,10 @@ public abstract class Person extends Entity {
     public Person(PersonalData personalData, String specialtyName) {
         this.personalData = personalData;
         this.specialtyName = specialtyName;
+    }
+
+    public Person() {
+
     }
 
     public PersonalData getPersonalData() {
@@ -28,6 +33,7 @@ public abstract class Person extends Entity {
         this.specialtyName = specialtyName;
     }
 
+    @JsonIgnore
     public String getFullName(){
         return personalData.getName() + " " + personalData.getSurname() + " " + personalData.getPatronymic();
     }

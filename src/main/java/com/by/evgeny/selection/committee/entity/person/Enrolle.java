@@ -28,6 +28,10 @@ public class Enrolle extends Person {
         }
     }
 
+    public Enrolle() {
+        super();
+    }
+
     public Boolean getEnrolled() {
         return enrolled;
     }

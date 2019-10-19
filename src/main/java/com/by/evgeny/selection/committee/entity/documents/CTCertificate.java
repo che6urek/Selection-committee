@@ -12,6 +12,10 @@ public class CTCertificate  implements java.io.Serializable{
         this.mark = mark;
     }
 
+    public CTCertificate() {
+
+    }
+
     public String getSubject() {
         return subject;
     }

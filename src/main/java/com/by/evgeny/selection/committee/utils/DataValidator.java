@@ -2,16 +2,13 @@ package com.by.evgeny.selection.committee.utils;
 
 import com.by.evgeny.selection.committee.reader.TextDictionaryRead;
 
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class DataValidator {
 
-    private static ArrayList<String> subjects = TextDictionaryRead.ReadFile("Dictionaries/subjects.txt");
-    private static ArrayList<String> specialities = TextDictionaryRead.ReadFile("Dictionaries/specialities.txt");
-    private static ArrayList<String> faculties = TextDictionaryRead.ReadFile("Dictionaries/faculties.txt");
+    private static ArrayList<String> subjects = TextDictionaryRead.readFile("Dictionaries/subjects.txt");
+    private static ArrayList<String> specialities = TextDictionaryRead.readFile("Dictionaries/specialities.txt");
+    private static ArrayList<String> faculties = TextDictionaryRead.readFile("Dictionaries/faculties.txt");
     private static final String WORD_REGEX = "[A-Za-zА-Яа-я]+";
     private static final String NAME_REGEX = "[A-Za-zА-Яа-я]+(([',. -])?[A-Za-zА-Яа-я]+)*$";
 
@@ -43,10 +40,10 @@ public class DataValidator {
         return faculties.contains(faculty);
     }
 
-    public static void UpdateDictionaries() {
-        subjects = TextDictionaryRead.ReadFile("Dictionaries/subjects.txt");
-        specialities = TextDictionaryRead.ReadFile("Dictionaries/specialities.txt");
-        faculties = TextDictionaryRead.ReadFile("Dictionaries/faculties.txt");
+    public static void updateDictionaries() {
+        subjects = TextDictionaryRead.readFile("Dictionaries/subjects.txt");
+        specialities = TextDictionaryRead.readFile("Dictionaries/specialities.txt");
+        faculties = TextDictionaryRead.readFile("Dictionaries/faculties.txt");
     }
 
 }

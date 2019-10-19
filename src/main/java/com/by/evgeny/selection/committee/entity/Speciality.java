@@ -2,8 +2,11 @@ package com.by.evgeny.selection.committee.entity;
 
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
-public class Speciality {
+import java.io.Serializable;
+
+public class Speciality implements Serializable {
 
     private String name;
     private String facultyName;
@@ -25,8 +28,11 @@ public class Speciality {
         this.requiredSubjects = requiredSubjects;
         enrolled = new Enrollees();
         //students = new ArrayList<Student>();
-
         this.code = code;
+    }
+
+    public Speciality() {
+        enrolled = new Enrollees();
     }
 
     /*public boolean AddStudent(Student student){
@@ -49,7 +55,7 @@ public class Speciality {
 
     }*/
 
-    public boolean Enrolle(Enrolle en){
+    public boolean enroll(Enrolle en){
         if(enrolled.getEnrollees().size() < places)
         {
             enrolled.add(en);
@@ -103,7 +109,8 @@ public class Speciality {
     }
 
     public void setEnrolled(Enrollees enrolled) {
-        this.enrolled = enrolled;
+        if(enrolled.getEnrollees() != null)
+            this.enrolled = enrolled;
     }
 
     public int getCode() {

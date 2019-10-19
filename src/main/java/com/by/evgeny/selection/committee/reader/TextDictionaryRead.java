@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class TextDictionaryRead {
-    public static ArrayList<String> ReadFile(String fileName)
+    public static ArrayList<String> readFile(String fileName)
     {
         try {
             return (ArrayList<String>) Files.readAllLines(Paths.get(fileName));

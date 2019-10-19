@@ -1,6 +1,6 @@
 package com.by.evgeny.selection.committee.entity;
 
-import com.by.evgeny.selection.committee.entity.person.IdGenerator;
+import com.by.evgeny.selection.committee.singleton.IdGenerator;
 
 import java.io.Serializable;
 

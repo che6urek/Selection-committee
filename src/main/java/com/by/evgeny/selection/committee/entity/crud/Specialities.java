@@ -64,7 +64,7 @@ public class Specialities implements CRUD<Speciality> {
         specialities.remove(speciality);
     }
 
-    public void Enroll(Enrollees enrollees){
+    public void enroll(Enrollees enrollees){
         EnrolleByMarkComparator comparator = new EnrolleByMarkComparator();
         ArrayList<Enrolle> en = enrollees.getEnrollees();
         en.sort((e1, e2) -> comparator.compare(e2, e1));
@@ -74,15 +74,15 @@ public class Specialities implements CRUD<Speciality> {
                     .findFirst()
                     .orElse(null);
             if(spec != null)
-                if(CheckSubjects(enrolle.getCtCertificates(), spec.getRequiredSubjects()) && !enrolle.getEnrolled()) {
+                if(checkSubjects(enrolle.getCtCertificates(), spec.getRequiredSubjects()) && !enrolle.getEnrolled()) {
                     enrolle.setEnrolled(true);
                     //spec.AddStudent(new Student(enrolle.getPersonalData(), enrolle.getSpecialtyName(), spec.getCode() * 100 + 1));
-                    spec.Enrolle(enrolle);
+                    spec.enroll(enrolle);
                 }
         }
     }
 
-    private boolean CheckSubjects(ArrayList<CTCertificate> ct, String[] subjects)
+    private boolean checkSubjects(ArrayList<CTCertificate> ct, String[] subjects)
     {
         for (String subject: subjects) {
             if(ct.stream()
@@ -90,6 +90,14 @@ public class Specialities implements CRUD<Speciality> {
                 return false;
         }
         return true;
+    }
+
+    public ArrayList<Speciality> getSpecialities() {
+        return specialities;
+    }
+
+    public void setSpecialities(ArrayList<Speciality> specialities) {
+        this.specialities = specialities;
     }
 
     @Override

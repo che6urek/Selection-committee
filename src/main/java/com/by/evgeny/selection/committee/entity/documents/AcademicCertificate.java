@@ -11,6 +11,10 @@ public class AcademicCertificate  implements java.io.Serializable{
         calculateAverageMark();
     }
 
+    public AcademicCertificate(){
+
+    }
+
     public int[] getMarks() {
         return marks;
     }

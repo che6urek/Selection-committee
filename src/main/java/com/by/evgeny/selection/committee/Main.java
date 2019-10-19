@@ -1,6 +1,6 @@
 package com.by.evgeny.selection.committee;
 
-import com.by.evgeny.selection.committee.utils.DataValidator;
+import com.by.evgeny.selection.committee.reader.XmlReader;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
 import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
@@ -9,38 +9,62 @@ import com.by.evgeny.selection.committee.entity.documents.MedicalCertificate;
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.Speciality;
-import com.by.evgeny.selection.committee.writer.XmlEnrolleesWrite;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
 
     /* TODO data validation
     *       architecture
     *       UI
-    *       javadoc
-    *       serialization*/
+    *       javadoc*/
 
     public static void main(String[] args) {
         Enrollees enrollees = fillEnrollees();
         Specialities specs = fillSpecs();
-        System.out.println(enrollees);
+        /*var xmlWriter = new XmlWriter<Enrollees>();
         try {
-            XmlEnrolleesWrite.Write(enrollees, "enrollees.xml");
+            xmlWriter.write(enrollees, "enrollees.xml");
         }
         catch (XmlException e){
             System.out.println("error");
         }
-        specs.Enroll(enrollees);
-        Scanner in = new Scanner(System.in);
+        enrollees = null;*/
+        var xmlReader = new XmlReader<Enrollees>();
+        try {
+            enrollees = xmlReader.read("enrollees.xml", Enrollees.class);
+        }
+        catch (XmlException e){
+            System.out.println("error");
+        }
+        /*var xmlWriter1 = new XmlWriter<Specialities>();
+        try {
+            xmlWriter1.write(specs, "specialities.xml");
+        }
+        catch (XmlException e){
+            System.out.println("error");
+        }
+        specs = null;*/
+        var xmlReader1 = new XmlReader<Specialities>();
+        try {
+            specs = xmlReader1.read("specialities.xml", Specialities.class);
+        }
+        catch (Exception e){
+            System.out.println("error");
+        }
+        System.out.println(enrollees);
+        System.out.println();
+        System.out.println(specs);
+
+        specs.enroll(enrollees);
+        /*Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         while(!str.equals("0"))
         {
             System.out.println(DataValidator.checkName(str));
             str = in.nextLine();
-        }
+        }*/
         System.out.println("end");
     }
 

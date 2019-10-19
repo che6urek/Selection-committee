@@ -12,12 +12,12 @@ public class MedicalCertificate  implements java.io.Serializable{
         this.allowed = allowed;
     }
 
-    public boolean getAllowed() {
-        return allowed;
+    public MedicalCertificate() {
+
     }
 
-    public void setAllowed(Boolean allowed) {
-        this.allowed = allowed;
+    public boolean getAllowed() {
+        return allowed;
     }
 
     public void setAllowed(boolean allowed) {
