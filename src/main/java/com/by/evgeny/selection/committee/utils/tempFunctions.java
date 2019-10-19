@@ -52,7 +52,6 @@ public class tempFunctions {
         System.out.println();
         System.out.println(specs);
 
-        specs.enroll(enrollees);
         /*Scanner in = new Scanner(System.in);
         String str = in.nextLine();
         while(!str.equals("0"))

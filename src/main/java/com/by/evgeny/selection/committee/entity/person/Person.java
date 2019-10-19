@@ -35,7 +35,7 @@ public abstract class Person extends Entity {
 
     @JsonIgnore
     public String getFullName(){
-        return personalData.getName() + " " + personalData.getSurname() + " " + personalData.getPatronymic();
+        return personalData.getSurname() + " " + personalData.getName() + " " + personalData.getPatronymic();
     }
 
     @Override
