@@ -2,7 +2,6 @@ package com.by.evgeny.selection.committee.entity;
 
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 import java.io.Serializable;
 
@@ -15,7 +14,7 @@ public class Speciality implements Serializable {
     private int places;
     private int code;
     private String[] requiredSubjects;
-
+    //TODO class for enrolled list
     private Enrollees enrolled;
     //private ArrayList<Enrolle> enrolled;
     //private ArrayList<ArrayList<Student>> groups;
@@ -109,8 +108,7 @@ public class Speciality implements Serializable {
     }
 
     public void setEnrolled(Enrollees enrolled) {
-        if(enrolled.getEnrollees() != null)
-            this.enrolled = enrolled;
+        this.enrolled = enrolled;
     }
 
     public int getCode() {

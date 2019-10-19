@@ -1,10 +1,8 @@
 package com.by.evgeny.selection.committee.reader;
 
-import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.fasterxml.jackson.xml.XmlMapper;
 
-import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 

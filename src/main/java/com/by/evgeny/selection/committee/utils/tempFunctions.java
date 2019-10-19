@@ -1,6 +1,6 @@
-package com.by.evgeny.selection.committee;
+package com.by.evgeny.selection.committee.utils;
 
-import com.by.evgeny.selection.committee.reader.XmlReader;
+import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
 import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
@@ -8,19 +8,14 @@ import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
 import com.by.evgeny.selection.committee.entity.documents.MedicalCertificate;
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
-import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
+import com.by.evgeny.selection.committee.reader.XmlReader;
 
 import java.util.ArrayList;
 
-public class Main {
+public class tempFunctions {
 
-    /* TODO data validation
-    *       architecture
-    *       UI
-    *       javadoc*/
-
-    public static void main(String[] args) {
+    public static void test(){
         Enrollees enrollees = fillEnrollees();
         Specialities specs = fillSpecs();
         /*var xmlWriter = new XmlWriter<Enrollees>();
@@ -68,7 +63,7 @@ public class Main {
         System.out.println("end");
     }
 
-    private static Specialities fillSpecs() {
+    public static Specialities fillSpecs() {
         Specialities specs = new Specialities();
         specs.add(new Speciality("SWIT", "KSaN", 3, new String[] {"Russian", "Physics", "Math"}, 7510));
         specs.add(new Speciality("CS", "KSaN", 4, new String[] {"Russian", "English", "Math"}, 7535));
@@ -76,7 +71,7 @@ public class Main {
         return specs;
     }
 
-    private static Enrollees fillEnrollees()
+    public static Enrollees fillEnrollees()
     {
         Enrollees en = new Enrollees();
         var ac = new AcademicCertificate(new int[] {10, 9, 8});
@@ -115,5 +110,4 @@ public class Main {
         en.add(new Enrolle(pd, "SWIT", ct, ac, mc));
         return en;
     }
-
 }

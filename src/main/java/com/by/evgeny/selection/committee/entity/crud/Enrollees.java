@@ -1,5 +1,6 @@
 package com.by.evgeny.selection.committee.entity.crud;
 
+import com.by.evgeny.selection.committee.entity.Entity;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.stream.Collectors;
 public class Enrollees implements CRUD<Enrolle> {
 
     private ArrayList<Enrolle> enrollees;
+    private int maxId;
 
     public Enrollees() {
         this.enrollees = new ArrayList<Enrolle>();
@@ -67,6 +69,20 @@ public class Enrollees implements CRUD<Enrolle> {
 
     public ArrayList<Enrolle> getEnrollees() {
         return enrollees;
+    }
+
+    public int getMaxId() {
+        return maxId;
+    }
+
+    public void setMaxId(int maxId) {
+        this.maxId = maxId;
+    }
+
+    public void updateMaxId(){
+        this.maxId = enrollees.stream()
+                .mapToInt(Entity::getId)
+                .max().orElse(0);
     }
 
     @Override
