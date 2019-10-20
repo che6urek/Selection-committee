@@ -1,8 +1,11 @@
 package com.by.evgeny.selection.committee.command;
-
+//TODO add commands
 public enum CommandType {
-    TEST      (new Test()),
-    TEST1     (new Test1());
+    EXIT                    (new Exit()),
+    DISPLAY_ENROLLEES       (new DisplayEnrollees()),
+    DISPLAY_ENROLLE_BY_ID   (new DisplayEnrolleById()),
+    DELETE_ENROLLE_BY_ID    (new DeleteEnrolleById()),
+    HELP                    (new Help());
 
     private Command command;
 

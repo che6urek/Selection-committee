@@ -1,13 +1,21 @@
 package com.by.evgeny.selection.committee.service;
 
+import com.by.evgeny.selection.committee.entity.comparators.EnrolleByIdComparator;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByNameComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 
+import java.util.Optional;
+//TODO data validation
 public class EnrolleService {
+
     private Enrollees enrollees = SingletonEnrollees.getInstance();
+
+    public Optional<Enrolle> getById(int id) {
+        return enrollees.get(id);
+    }
 
     public void updateDataById(int id, Enrolle enrolle){
         enrollees.update(id, enrolle);
@@ -22,6 +30,11 @@ public class EnrolleService {
     }
 
     public String getAll(){
+        return enrollees.toString();
+    }
+
+    public String getAllSortedById(){
+        enrollees.getEnrollees().sort(new EnrolleByIdComparator());
         return enrollees.toString();
     }
 

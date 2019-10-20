@@ -1,11 +1,13 @@
 package com.by.evgeny.selection.committee.controller;
 
+import com.by.evgeny.selection.committee.command.Help;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
 
 public class Controller {
 
     public static void main(String[] args) {
         Initialization.Init();
+        new Help().execute();
 
         int cmd = ConsoleReader.nextInt();
         try {

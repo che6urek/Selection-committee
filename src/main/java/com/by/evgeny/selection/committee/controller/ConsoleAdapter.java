@@ -7,8 +7,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ConsoleAdapter {
-    _0(0, "test", TEST),
-    _1(1, "test1", TEST1);
+    _0(0, "Exit", EXIT),
+    _1(1, "Help", HELP),
+    _2(2, "Display enrollees", DISPLAY_ENROLLEES),
+    _4(4, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
+    _5(5, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID);
 
     private String message;
     private int index;

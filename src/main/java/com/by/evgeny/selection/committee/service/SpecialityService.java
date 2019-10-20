@@ -10,9 +10,15 @@ import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkCompara
 import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
 
 import java.util.ArrayList;
-
+import java.util.Optional;
+//TODO data validation
 public class SpecialityService {
+
     private Specialities specialities = SingletonSpecialities.getInstance();
+
+    public Optional<Speciality> getByCode(int code) {
+        return specialities.get(code);
+    }
 
     public void updateDataById(int id, Speciality spec){
         specialities.update(id, spec);
