@@ -1,9 +1,5 @@
 package com.by.evgeny.selection.committee.utils;
 
-import com.by.evgeny.selection.committee.reader.TextDictionaryRead;
-
-import java.util.ArrayList;
-
 public class DataValidator {
 
     private static final String WORDS_REGEX = "^[A-Za-zА-Яа-я]+([ ]?[A-Za-zА-Яа-я-]+)*$";
