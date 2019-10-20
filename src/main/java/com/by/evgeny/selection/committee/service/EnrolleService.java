@@ -1,10 +1,10 @@
 package com.by.evgeny.selection.committee.service;
 
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByIdComparator;
+import com.by.evgeny.selection.committee.entity.comparators.PersonByNameComparator;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
-import com.by.evgeny.selection.committee.entity.comparators.EnrolleByNameComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 import com.by.evgeny.selection.committee.utils.DataValidator;
 
@@ -49,7 +49,7 @@ public class EnrolleService {
     }
 
     public String getAllSortedByName() {
-        enrollees.getEnrollees().sort(new EnrolleByNameComparator());
+        enrollees.getEnrollees().sort(new PersonByNameComparator());
         return enrollees.toString();
     }
 

@@ -17,6 +17,8 @@ public enum CommandType {
     DISPLAY_SPECIALITY_BY_CODE      (new DisplaySpecialityByCode()),
     DELETE_SPECIALITY_BY_CODE       (new DeleteSpecialityByCode()),
     UPDATE_SPECIALITY_BY_CODE       (new UpdateSpecialityByCode()),
+    DISPLAY_ENROLLED_BY_CODE        (new DisplayEnrolledByCode()),
+    ENROLL                          (new Enroll()),
     HELP                            (new Help());
 
     private Command command;

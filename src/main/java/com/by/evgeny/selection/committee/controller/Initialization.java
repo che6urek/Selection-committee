@@ -3,7 +3,7 @@ package com.by.evgeny.selection.committee.controller;
 import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
-import com.by.evgeny.selection.committee.entity.person.Enrolle;
+import com.by.evgeny.selection.committee.entity.person.Student;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.by.evgeny.selection.committee.reader.XmlReader;
 import com.by.evgeny.selection.committee.singleton.IdGenerator;
@@ -17,7 +17,6 @@ public class Initialization {
     public static void Init() {
 
         var xmlEnrolleReader = new XmlReader<Enrollees>();
-
         try {
             Enrollees enrollees = xmlEnrolleReader.read("enrollees.xml", Enrollees.class);
 
@@ -40,10 +39,12 @@ public class Initialization {
             if(specialities == null)
                 specialities = (new Specialities());
             for (Speciality spec: specialities.getSpecialities()) {
-                if (spec.getEnrolled().getEnrollees() == null)
-                    spec.getEnrolled().setEnrollees(new ArrayList<Enrolle>());
+                if (spec.getEnrolled() == null)
+                    spec.setEnrolled((new ArrayList<Student>()));
             }
             SingletonSpecialities.init(specialities);
+            specialities.updateMaxId();
+            IdGenerator.init(specialities.getMaxId());
         }
         catch (Exception e) {
             if (e instanceof XmlException)

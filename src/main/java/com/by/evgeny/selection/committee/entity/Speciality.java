@@ -1,62 +1,36 @@
 package com.by.evgeny.selection.committee.entity;
 
-import com.by.evgeny.selection.committee.entity.crud.Enrollees;
-import com.by.evgeny.selection.committee.entity.person.Enrolle;
+import com.by.evgeny.selection.committee.entity.person.Student;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Speciality implements Serializable {
 
     private String name;
     private String facultyName;
-    //private int paidPlaces;
-    //private int freePlaces;
     private int places;
     private int code;
     private String[] requiredSubjects;
-    //TODO class for enrolled list
-    private Enrollees enrolled;
-    //private ArrayList<Enrolle> enrolled;
-    //private ArrayList<ArrayList<Student>> groups;
-    //private ArrayList<Student> students;
+    private ArrayList<Student> enrolled;
+    private int maxId;
 
     public Speciality(String name, String facultyName, int places, String[] requiredSubjects, int code) {
         this.name = name;
         this.facultyName = facultyName;
         this.places = places;
         this.requiredSubjects = requiredSubjects;
-        enrolled = new Enrollees();
-        //students = new ArrayList<Student>();
+        enrolled = new ArrayList<Student>();
         this.code = code;
     }
 
     public Speciality() {
-        enrolled = new Enrollees();
+        enrolled = new ArrayList<Student>();
     }
 
-    /*public boolean AddStudent(Student student){
-        if(students.size() < places)
-        {
-            students.add(student);
-            return true;
-        }
-        return false;
-    }
-
-    public boolean AddStudent(ArrayList<Student> enrolledStudents)
-    {
-        if(enrolledStudents.size() + students.size() < places)
-        {
-            students.addAll(enrolledStudents);
-            return true;
-        }
-        return false;
-
-    }*/
-
-    public void enroll(Enrolle en){
-        if(enrolled.getEnrollees().size() < places)
-            enrolled.add(en);
+    public void enroll(Student student){
+        if(enrolled.size() < places)
+            enrolled.add(student);
     }
 
     public String getName() {
@@ -91,19 +65,11 @@ public class Speciality implements Serializable {
         this.requiredSubjects = requiredSubjects;
     }
 
-    /*public ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }*/
-
-    public Enrollees getEnrolled() {
+    public ArrayList<Student> getEnrolled() {
         return enrolled;
     }
 
-    public void setEnrolled(Enrollees enrolled) {
+    public void setEnrolled(ArrayList<Student> enrolled) {
         this.enrolled = enrolled;
     }
 
@@ -113,6 +79,20 @@ public class Speciality implements Serializable {
 
     public void setCode(int code) {
         this.code = code;
+    }
+
+    public int getMaxId() {
+        return maxId;
+    }
+
+    public void setMaxId(int maxId) {
+        this.maxId = maxId;
+    }
+
+    public void updateMaxId() {
+        this.maxId = enrolled.stream()
+                .mapToInt(Entity::getId)
+                .max().orElse(0);
     }
 
     @Override
@@ -126,7 +106,7 @@ public class Speciality implements Serializable {
         for (int i = 1; i < requiredSubjects.length; i++) {
             result.append(", ").append(requiredSubjects[i]);
         }
-        result.append(System.lineSeparator()).append("Enrolled: ").append(enrolled.getEnrollees().size());
+        result.append(System.lineSeparator()).append("Enrolled: ").append(enrolled.size());
         return result.toString();
     }
 }

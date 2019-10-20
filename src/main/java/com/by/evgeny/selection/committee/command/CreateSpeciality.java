@@ -1,6 +1,7 @@
 package com.by.evgeny.selection.committee.command;
 
 import com.by.evgeny.selection.committee.entity.Speciality;
+import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
 import com.by.evgeny.selection.committee.utils.DataValidator;
 
 public class CreateSpeciality {
@@ -21,6 +22,12 @@ public class CreateSpeciality {
         var code = EntryField.EnterInt("code", DataValidator::checkPositive);
         if(code < 0)
             return null;
+
+        for (Speciality spec: SingletonSpecialities.getInstance().getSpecialities()) {
+            if(code == spec.getCode()) {
+                System.out.println("Speciality with such code already exists. Please try again");
+            }
+        }
 
         var len = EntryField.EnterInt("CT subjects count", DataValidator::checkPositive);
         if(len < 2 || len > 3)

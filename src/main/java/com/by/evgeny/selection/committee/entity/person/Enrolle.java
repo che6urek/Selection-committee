@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 public class Enrolle extends Person {
 
-    private Boolean enrolled = false;
     private ArrayList<CTCertificate> ctCertificates;
     private AcademicCertificate academicCertificate;
     private MedicalCertificate medicalCertificate;
@@ -31,14 +30,6 @@ public class Enrolle extends Person {
 
     public Enrolle() {
         super();
-    }
-
-    public Boolean getEnrolled() {
-        return enrolled;
-    }
-
-    public void setEnrolled(Boolean enrolled) {
-        this.enrolled = enrolled;
     }
 
     public ArrayList<CTCertificate> getCtCertificates() {

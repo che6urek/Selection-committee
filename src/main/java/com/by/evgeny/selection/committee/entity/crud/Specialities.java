@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 public class Specialities implements CRUD<Speciality> {
 
     private ArrayList<Speciality> specialities;
+    private int maxId;
 
     public Specialities () {
         specialities = new ArrayList<Speciality>();
@@ -67,6 +68,21 @@ public class Specialities implements CRUD<Speciality> {
 
     public void setSpecialities(ArrayList<Speciality> specialities) {
         this.specialities = specialities;
+    }
+
+    public int getMaxId() {
+        return maxId;
+    }
+
+    public void setMaxId(int maxId) {
+        this.maxId = maxId;
+    }
+
+    public void updateMaxId() {
+        this.maxId = specialities.stream()
+                .mapToInt(Speciality::getMaxId)
+                .max().orElse(0);
+
     }
 
     @Override
