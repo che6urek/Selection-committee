@@ -15,13 +15,13 @@ public class UpdateEnrolleById implements Command {
 
         System.out.print("Enter enrolle's ID: ");
         int id = ConsoleReader.nextInt();
-        if(service.getById(id).isPresent()) {
+        if (service.getById(id).isPresent()) {
             System.out.println("Are you sure you want to change enrolle's data? The previous values will be deleted (Print \"yes\")");
             String answer = ConsoleReader.nextString();
             if (answer != null)
                 if (answer.toLowerCase().equals("yes")) {
                     Enrolle enrolle = CreateEnrolle.create();
-                    if(enrolle != null) {
+                    if (enrolle != null) {
                         SingletonEnrollees.getInstance().update(id, enrolle);
                         System.out.println("Done.");
                     }

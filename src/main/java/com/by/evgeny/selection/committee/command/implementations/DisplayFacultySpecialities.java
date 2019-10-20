@@ -12,6 +12,6 @@ public class DisplayFacultySpecialities implements Command {
 
         System.out.print("Enter faculty name: ");
         String result = service.getFacultySpecialities(ConsoleReader.nextString());
-        System.out.println(result.isEmpty() ? "Nothing found" : result);
+        System.out.println(result.isBlank() ? "Nothing found" : result);
     }
 }

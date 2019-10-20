@@ -11,7 +11,7 @@ public class AddEnrolle implements Command {
     public void execute() {
 
         Enrolle enrolle = CreateEnrolle.create();
-        if(enrolle != null) {
+        if (enrolle != null) {
             SingletonEnrollees.getInstance().add(enrolle);
             System.out.println("Done.");
         }

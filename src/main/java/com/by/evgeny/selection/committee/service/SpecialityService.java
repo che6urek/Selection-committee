@@ -23,12 +23,12 @@ public class SpecialityService {
         return specialities.get(code);
     }
 
-    public void updateByCode(int code, Speciality spec){
+    public void updateByCode(int code, Speciality spec) {
         if(validate(spec))
             specialities.update(code, spec);
     }
 
-    public void add(Speciality spec){
+    public void add(Speciality spec) {
         if(validate(spec))
             specialities.add(spec);
     }
@@ -70,13 +70,13 @@ public class SpecialityService {
     }
 
     public boolean validate(Speciality spec) {
-        if(spec == null)
+        if (spec == null)
             return false;
         String[] subjects = spec.getRequiredSubjects();
-        if(spec.getFacultyName() == null || spec.getName() == null
+        if (spec.getFacultyName() == null || spec.getName() == null
                 || spec.getEnrolled() == null || subjects == null)
             return false;
-        if(!DataValidator.checkWords(spec.getFacultyName()) || !DataValidator.checkWords(spec.getName()))
+        if (!DataValidator.checkWords(spec.getFacultyName()) || !DataValidator.checkWords(spec.getName()))
             return false;
         for (var subject: subjects) {
             if(!DataValidator.checkWords(subject))
@@ -96,19 +96,19 @@ public class SpecialityService {
     }
 
     private boolean validateStudent(Student student) {
-        if(student == null)
+        if (student == null)
             return false;
 
-        if(student.getPersonalData() == null || student.getSpecialtyName() == null)
+        if (student.getPersonalData() == null || student.getSpecialtyName() == null)
             return false;
 
-        if(!DataValidator.checkMark(student.getTotalMark()))
+        if (!DataValidator.checkMark(student.getTotalMark()))
             return false;
 
-        if(!DataValidator.checkWords(student.getSpecialtyName()))
+        if (!DataValidator.checkWords(student.getSpecialtyName()))
             return false;
 
-        if(!DataValidator.checkPositive(student.getTicketNo()))
+        if (!DataValidator.checkPositive(student.getTicketNo()))
             return false;
 
         return DataValidator.checkName(student.getFullName());
@@ -123,7 +123,7 @@ public class SpecialityService {
                     .filter(e -> e.getName().equals(enrolle.getSpecialtyName()))
                     .findFirst()
                     .orElse(null);
-            if(spec != null)
+            if (spec != null)
                 if(checkSubjects(enrolle.getCtCertificates(), spec.getRequiredSubjects())) {
                     spec.enroll(new Student(enrolle.getPersonalData(), enrolle.getSpecialtyName(),
                             enrolle.getTotalMark(), enrolle.getSpecialtyName()));

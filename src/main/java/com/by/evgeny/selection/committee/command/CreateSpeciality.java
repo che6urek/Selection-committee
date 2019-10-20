@@ -8,35 +8,35 @@ public class CreateSpeciality {
 
     public static Speciality create() {
         var name = EntryField.EnterString("name", DataValidator::checkName);
-        if(name == null)
+        if (name == null)
             return null;
 
         var facultyName = EntryField.EnterString("faculty name", DataValidator::checkName);
-        if(facultyName == null)
+        if (facultyName == null)
             return null;
 
         var places = EntryField.EnterInt("places count", DataValidator::checkPositive);
-        if(places < 0)
+        if (places < 0)
             return null;
 
         var code = EntryField.EnterInt("code", DataValidator::checkPositive);
-        if(code < 0)
+        if (code < 0)
             return null;
 
         for (Speciality spec: SingletonSpecialities.getInstance().getSpecialities()) {
-            if(code == spec.getCode()) {
+            if (code == spec.getCode()) {
                 System.out.println("Speciality with such code already exists. Please try again");
             }
         }
 
         var len = EntryField.EnterInt("CT subjects count", DataValidator::checkPositive);
-        if(len < 2 || len > 3)
+        if (len < 2 || len > 3)
             return null;
         String[] subjects = new String[len];
         for (int i = 0; i < len; i++) {
             System.out.println("Enter subject (" + (len - i) + " left): ");
             subjects[i] = EntryField.EnterString("subject", DataValidator::checkWords);
-            if(subjects[i] == null)
+            if (subjects[i] == null)
                 return null;
         }
 

@@ -46,7 +46,7 @@ public class AcademicCertificate  implements Serializable {
     @Override
     public String toString() {
         StringBuilder result = new StringBuilder("Marks: ");
-        if(marks.length > 0)
+        if (marks.length > 0)
             result.append(marks[0]);
         for (int i = 1; i < marks.length; i++) {
             result.append(", ").append(marks[i]);

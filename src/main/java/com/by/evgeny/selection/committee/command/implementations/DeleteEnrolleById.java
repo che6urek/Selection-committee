@@ -12,7 +12,7 @@ public class DeleteEnrolleById implements Command {
 
         System.out.print("Enter enrolle's ID: ");
         int id = ConsoleReader.nextInt();
-        if(service.getById(id).isPresent()) {
+        if (service.getById(id).isPresent()) {
             System.out.println("Are you sure you want to delete this enrolle? (Print \"yes\")");
             String answer = ConsoleReader.nextString();
             if (answer != null)

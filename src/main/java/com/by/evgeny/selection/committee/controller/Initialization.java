@@ -20,7 +20,7 @@ public class Initialization {
         try {
             Enrollees enrollees = xmlEnrolleReader.read("enrollees.xml", Enrollees.class);
 
-            if(enrollees == null)
+            if (enrollees == null)
                 enrollees = (new Enrollees());
             SingletonEnrollees.init(enrollees);
             enrollees.updateMaxId();
@@ -32,11 +32,10 @@ public class Initialization {
         }
 
         var xmlSpecialitiesReader = new XmlReader<Specialities>();
-
         try {
             Specialities specialities = xmlSpecialitiesReader.read("specialities.xml", Specialities.class);
 
-            if(specialities == null)
+            if (specialities == null)
                 specialities = (new Specialities());
             for (Speciality spec: specialities.getSpecialities()) {
                 if (spec.getEnrolled() == null)

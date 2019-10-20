@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum ConsoleAdapter {
+
     _0(0, "Exit", EXIT),
     _1(1, "Help", HELP),
     _2(2, "Display enrollees", DISPLAY_ENROLLEES),

@@ -29,7 +29,7 @@ public class ConsoleReader {
         return -1;
     }
 
-    public static String nextString(){
+    public static String nextString() {
         if (scanner.hasNext()) {
             return scanner.next();
         }

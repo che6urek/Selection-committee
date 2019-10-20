@@ -12,6 +12,6 @@ public class DisplayEnrolleesForSpeciality implements Command {
 
         System.out.print("Enter speciality name: ");
         String result = service.getForSpeciality(ConsoleReader.nextString());
-        System.out.println(result.isEmpty() ? "Nothing found" : result);
+        System.out.println(result.isBlank() ? "Nothing found" : result);
     }
 }

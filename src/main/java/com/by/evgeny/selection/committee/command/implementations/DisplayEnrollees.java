@@ -32,6 +32,6 @@ public class DisplayEnrollees implements Command {
                 break;
             default:
         }
-        System.out.println(result == null || result.isEmpty() ? "Nothing found" : result);
+        System.out.println(result == null || result.isBlank() ? "Nothing found" : result);
     }
 }

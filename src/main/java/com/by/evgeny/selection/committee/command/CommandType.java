@@ -3,6 +3,7 @@ package com.by.evgeny.selection.committee.command;
 import com.by.evgeny.selection.committee.command.implementations.*;
 
 public enum CommandType {
+
     EXIT                            (new Exit()),
     DISPLAY_ENROLLEES               (new DisplayEnrollees()),
     DISPLAY_ENROLLE_FOR_SPECIALITY  (new DisplayEnrolleesForSpeciality()),

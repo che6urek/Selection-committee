@@ -11,12 +11,12 @@ import com.by.evgeny.selection.committee.writer.XmlWriter;
 public class Exit implements Command {
 
     @Override
-    public void execute(){
+    public void execute() {
         var xmlEnrolleesWriter = new XmlWriter<Enrollees>();
         try {
             xmlEnrolleesWriter.write(SingletonEnrollees.getInstance(), "enrollees.xml");
         }
-        catch (XmlException e){
+        catch (XmlException e) {
             System.out.println(e.getMessage());
         }
 
@@ -24,7 +24,7 @@ public class Exit implements Command {
         try {
             xmlSpecialitiesWriter.write(SingletonSpecialities.getInstance(), "specialities.xml");
         }
-        catch (XmlException e){
+        catch (XmlException e) {
             System.out.println(e.getMessage());
         }
     }

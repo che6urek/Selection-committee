@@ -11,7 +11,7 @@ public class AddSpeciality implements Command {
     public void execute() {
 
         Speciality spec = CreateSpeciality.create();
-        if(spec != null) {
+        if (spec != null) {
             SingletonSpecialities.getInstance().add(spec);
             System.out.println("Done.");
         }

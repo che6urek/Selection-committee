@@ -8,7 +8,6 @@ public class MedicalCertificate  implements Serializable {
     //private String healthGroup;
     //private String healthInstitution;
     //private LocalDate expirationDate;
-
     private boolean allowed;
 
     public MedicalCertificate(Boolean allowed) {

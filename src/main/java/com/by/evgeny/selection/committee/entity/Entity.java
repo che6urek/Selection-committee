@@ -5,6 +5,7 @@ import com.by.evgeny.selection.committee.singleton.IdGenerator;
 import java.io.Serializable;
 
 public class Entity implements Serializable {
+
     private int id;
 
     public Entity() {

@@ -15,14 +15,14 @@ public class UpdateSpecialityByCode implements Command {
 
         System.out.print("Enter enrolle's ID: ");
         int code = ConsoleReader.nextInt();
-        if(service.getByCode(code).isPresent()) {
+        if (service.getByCode(code).isPresent()) {
             System.out.println("Are you sure you want to change speciality data? " +
                     "The previous values will be deleted (Print \"yes\")");
             String answer = ConsoleReader.nextString();
             if (answer != null)
                 if (answer.toLowerCase().equals("yes")) {
                     Speciality speciality = CreateSpeciality.create();
-                    if(speciality != null) {
+                    if (speciality != null) {
                         SingletonSpecialities.getInstance().update(code, speciality);
                         System.out.println("Done.");
                     }

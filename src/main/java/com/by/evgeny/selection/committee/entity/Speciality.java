@@ -29,7 +29,7 @@ public class Speciality implements Serializable {
     }
 
     public void enroll(Student student){
-        if(enrolled.size() < places)
+        if (enrolled.size() < places)
             enrolled.add(student);
     }
 
@@ -101,7 +101,7 @@ public class Speciality implements Serializable {
                 + "Code: " + code + System.lineSeparator()
                 + "Places: " + places + System.lineSeparator()
                 + "Required subjects: ");
-        if(requiredSubjects.length > 0)
+        if (requiredSubjects.length > 0)
             result.append(requiredSubjects[0]);
         for (int i = 1; i < requiredSubjects.length; i++) {
             result.append(", ").append(requiredSubjects[i]);

@@ -21,12 +21,12 @@ public class EnrolleService {
     }
 
     public void updateDataById(int id, Enrolle enrolle){
-        if(validate(enrolle))
+        if (validate(enrolle))
             enrollees.update(id, enrolle);
     }
 
     public void add(Enrolle enrolle){
-        if(validate(enrolle))
+        if (validate(enrolle))
             enrollees.add(enrolle);
     }
 
@@ -62,17 +62,17 @@ public class EnrolleService {
     }
 
     public boolean validate(Enrolle enrolle) {
-        if(enrolle == null)
+        if (enrolle == null)
             return false;
 
         var ct = enrolle.getCtCertificates();
         var ac = enrolle.getAcademicCertificate();
 
-        if(ct == null || ac == null || enrolle.getMedicalCertificate() == null
+        if (ct == null || ac == null || enrolle.getMedicalCertificate() == null
                 || enrolle.getPersonalData() == null || enrolle.getSpecialtyName() == null)
             return false;
 
-        if(ct.size() < 2 || ct.size() > 4)
+        if (ct.size() < 2 || ct.size() > 4)
             return false;
         for (var certificate: ct) {
             if(!DataValidator.checkMark(certificate.getMark()))
@@ -86,10 +86,10 @@ public class EnrolleService {
                 return false;
         }
 
-        if(!DataValidator.checkMark(enrolle.getTotalMark()))
+        if (!DataValidator.checkMark(enrolle.getTotalMark()))
             return false;
 
-        if(!DataValidator.checkWords(enrolle.getSpecialtyName()))
+        if (!DataValidator.checkWords(enrolle.getSpecialtyName()))
             return false;
 
         return DataValidator.checkName(enrolle.getFullName());

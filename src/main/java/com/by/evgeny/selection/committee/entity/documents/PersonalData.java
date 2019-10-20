@@ -8,7 +8,6 @@ public class PersonalData  implements Serializable {
     private String surname;
     private String patronymic;
     //public Gender gender;
-
     //public String passportNo;
     //public LocalDate dateOfBirth;
 
