@@ -8,7 +8,7 @@ public class Help implements Command {
     public void execute() {
         System.out.println("Available commands:");
         for (ConsoleAdapter cmd : ConsoleAdapter.values()) {
-            System.out.println(cmd.getIndex() + ". " + cmd.getMessage());
+            System.out.println(cmd.getIndex() + ". " + cmd.getDescription());
         }
     }
 }

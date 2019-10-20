@@ -10,16 +10,18 @@ public enum ConsoleAdapter {
     _0(0, "Exit", EXIT),
     _1(1, "Help", HELP),
     _2(2, "Display enrollees", DISPLAY_ENROLLEES),
-    _4(4, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
-    _5(5, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID);
+    _3(3, "Display enrollees for speciality", DISPLAY_ENROLLE_FOR_SPECIALITY),
+    _5(5, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
+    _6(6, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID),;
 
-    private String message;
+
+    private String description;
     private int index;
     private CommandType commandType;
 
-    ConsoleAdapter(int index, String message, CommandType commandType) {
+    ConsoleAdapter(int index, String description, CommandType commandType) {
         this.index = index;
-        this.message = message;
+        this.description = description;
         this.commandType = commandType;
     }
 
@@ -31,8 +33,8 @@ public enum ConsoleAdapter {
         return commandType;
     }
 
-    public String getMessage() {
-        return message;
+    public String getDescription() {
+        return description;
     }
 
     private static final Map<Integer, ConsoleAdapter> commandMap = new HashMap<>();

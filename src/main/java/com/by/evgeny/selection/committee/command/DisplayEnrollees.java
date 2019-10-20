@@ -15,19 +15,22 @@ public class DisplayEnrollees implements Command {
         System.out.println("2. Sorted by name");
         System.out.println("3. Sorted by total mark");
 
+        String result = null;
         switch (ConsoleReader.nextInt()) {
             case 0:
-                System.out.println(service.getAll());
+                result = service.getAll();
                 break;
             case 1:
-                System.out.println(service.getAllSortedById());
+                result = service.getAllSortedById();
                 break;
             case 2:
-                System.out.println(service.getAllSortedByName());
+                result = service.getAllSortedByName();
                 break;
             case 3:
-                System.out.println(service.getAllSortedByMark());
+                result = service.getAllSortedByMark();
                 break;
+            default:
         }
+        System.out.println(result == null || result.isEmpty() ? "Nothing found" : result);
     }
 }

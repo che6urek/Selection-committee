@@ -8,7 +8,9 @@ import com.by.evgeny.selection.committee.entity.comparators.EnrolleByNameCompara
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 import com.by.evgeny.selection.committee.utils.DataValidator;
 
+import java.util.ArrayList;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class EnrolleService {
 
@@ -51,6 +53,14 @@ public class EnrolleService {
         return enrollees.toString();
     }
 
+    public String getForSpeciality(String specName) {
+        var temp = new Enrollees();
+        temp.setEnrollees(enrollees.getEnrollees().stream()
+                .filter(e -> e.getSpecialtyName().equals(specName))
+                .collect(Collectors.toCollection(ArrayList::new)));
+        return temp.toString();
+    }
+
     public boolean validate(Enrolle enrolle) {
         var ct = enrolle.getCtCertificates();
         var ac = enrolle.getAcademicCertificate();
@@ -66,7 +76,7 @@ public class EnrolleService {
                 return false;
         }
 
-        if(ac.getMarks() == null)
+        if(ac.getMarks() == null || !DataValidator.checkMark(ac.getAverageMark()))
             return false;
         for (var mark: ac.getMarks()) {
             if(!DataValidator.checkSchoolMark(mark))

@@ -12,6 +12,7 @@ import com.by.evgeny.selection.committee.utils.DataValidator;
 
 import java.util.ArrayList;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class SpecialityService {
 
@@ -22,11 +23,13 @@ public class SpecialityService {
     }
 
     public void updateDataById(int id, Speciality spec){
-        specialities.update(id, spec);
+        if(validate(spec))
+            specialities.update(id, spec);
     }
 
     public void add(Speciality spec){
-        specialities.add(spec);
+        if(validate(spec))
+            specialities.add(spec);
     }
 
     public void remove(int id){
@@ -43,7 +46,11 @@ public class SpecialityService {
     }
 
     public String getFacultySpecialities(String facultyName){
-        return specialities.getSpecialities().stream().filter(s -> s.getFacultyName().equals(facultyName)).toString();
+        var temp = new Specialities();
+        temp.setSpecialities(specialities.getSpecialities().stream()
+                .filter(e -> e.getFacultyName().equals(facultyName))
+                .collect(Collectors.toCollection(ArrayList::new)));
+        return temp.toString();
     }
 
     public boolean validate(Speciality spec) {

@@ -11,14 +11,18 @@ public class DeleteEnrolleById implements Command {
 
         System.out.println("Enter enrolle's ID: ");
         int id = ConsoleReader.nextInt();
-        System.out.println("Are you sure you want to delete this applicant? (Print \"yes\")");
-        String answer = ConsoleReader.nextString();
-        if(answer != null)
-            if(answer.toLowerCase().equals("yes")) {
-                service.excludeById(id);
-                System.out.println("Done.");
-                return;
-            }
-        System.out.println("Aborted by user.");
+        if(service.getById(id).isPresent()) {
+            System.out.println("Are you sure you want to delete this enrolle? (Print \"yes\")");
+            String answer = ConsoleReader.nextString();
+            if (answer != null)
+                if (answer.toLowerCase().equals("yes")) {
+                    service.excludeById(id);
+                    System.out.println("Done.");
+                    return;
+                }
+            System.out.println("Aborted by user.");
+        }
+        else
+            System.out.println("Nothing found");
     }
 }
