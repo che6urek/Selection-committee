@@ -21,6 +21,10 @@ public class DataValidator {
         return mark >= 0 && mark <= 10;
     }
 
+    public static boolean checkCode(int code) {
+        return code >= 100 && code <= 1000;
+    }
+
     public static boolean checkPositive(int num) {
         return num >= 0;
     }

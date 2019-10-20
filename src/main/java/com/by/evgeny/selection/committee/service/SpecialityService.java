@@ -86,7 +86,7 @@ public class SpecialityService {
             if(!validateStudent(student))
                 return false;
         }
-        if (spec.getCode() < 0)
+        if (!DataValidator.checkCode(spec.getCode()))
             return false;
         for (Speciality speciality: specialities.getSpecialities()) {
             if(spec.getCode() == speciality.getCode())
