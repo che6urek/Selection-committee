@@ -2,7 +2,6 @@ package com.by.evgeny.selection.committee.command;
 
 import com.by.evgeny.selection.committee.command.implementations.*;
 
-//TODO add commands
 public enum CommandType {
     EXIT                            (new Exit()),
     DISPLAY_ENROLLEES               (new DisplayEnrollees()),

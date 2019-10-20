@@ -2,8 +2,6 @@ package com.by.evgeny.selection.committee.entity.person;
 
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 
-//TODO make necessary or remove
-
 public class Student extends Person {
 
     //private int groupNo;
