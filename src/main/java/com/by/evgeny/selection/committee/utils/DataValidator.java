@@ -6,14 +6,11 @@ import java.util.ArrayList;
 
 public class DataValidator {
 
-    private static ArrayList<String> subjects = TextDictionaryRead.readFile("Dictionaries/subjects.txt");
-    private static ArrayList<String> specialities = TextDictionaryRead.readFile("Dictionaries/specialities.txt");
-    private static ArrayList<String> faculties = TextDictionaryRead.readFile("Dictionaries/faculties.txt");
-    private static final String WORD_REGEX = "[A-Za-zА-Яа-я]+";
-    private static final String NAME_REGEX = "[A-Za-zА-Яа-я]+(([',. -])?[A-Za-zА-Яа-я]+)*$";
+    private static final String WORDS_REGEX = "^[A-Za-zА-Яа-я]+([ ]?[A-Za-zА-Яа-я-]+)*$";
+    private static final String NAME_REGEX = "^[A-Za-zА-Яа-я]+(([',. -])?[A-Za-zА-Яа-я]+)*$";
 
-    public static boolean checkWord(String word) {
-        return word != null && word.matches(WORD_REGEX);
+    public static boolean checkWords(String words) {
+        return words != null && words.matches(WORDS_REGEX);
     }
 
     public static boolean checkName(String name) {
@@ -27,23 +24,4 @@ public class DataValidator {
     public static boolean checkSchoolMark(int mark) {
         return mark >= 0 && mark <= 10;
     }
-
-    public static boolean checkSubject(String subject) {
-        return subjects.contains(subject);
-    }
-
-    public static boolean checkSpeciality(String speciality) {
-        return specialities.contains(speciality);
-    }
-
-    public static boolean checkFaculty(String faculty) {
-        return faculties.contains(faculty);
-    }
-
-    public static void updateDictionaries() {
-        subjects = TextDictionaryRead.readFile("Dictionaries/subjects.txt");
-        specialities = TextDictionaryRead.readFile("Dictionaries/specialities.txt");
-        faculties = TextDictionaryRead.readFile("Dictionaries/faculties.txt");
-    }
-
 }

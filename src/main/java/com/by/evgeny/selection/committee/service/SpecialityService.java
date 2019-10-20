@@ -8,10 +8,11 @@ import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
+import com.by.evgeny.selection.committee.utils.DataValidator;
 
 import java.util.ArrayList;
 import java.util.Optional;
-//TODO data validation
+
 public class SpecialityService {
 
     private Specialities specialities = SingletonSpecialities.getInstance();
@@ -43,6 +44,27 @@ public class SpecialityService {
 
     public String getFacultySpecialities(String facultyName){
         return specialities.getSpecialities().stream().filter(s -> s.getFacultyName().equals(facultyName)).toString();
+    }
+
+    public boolean validate(Speciality spec) {
+        String[] subjects = spec.getRequiredSubjects();
+        if(spec.getFacultyName() == null || spec.getName() == null
+                || spec.getEnrolled() == null || subjects == null)
+            return false;
+        if(!DataValidator.checkWords(spec.getFacultyName()) || !DataValidator.checkWords(spec.getName()))
+            return false;
+        if(spec.getPlaces() < 0)
+            return false;
+        for (var subject: subjects) {
+            if(!DataValidator.checkWords(subject))
+                return false;
+        }
+        var enrolleService = new EnrolleService();
+        for (Enrolle en: spec.getEnrolled().getEnrollees()) {
+            if(!enrolleService.validate(en))
+                return false;
+        }
+        return spec.getCode() >= 0;
     }
 
     public void enroll(Enrollees enrollees){

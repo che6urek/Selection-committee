@@ -6,9 +6,10 @@ import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
 import com.by.evgeny.selection.committee.entity.comparators.EnrolleByNameComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
+import com.by.evgeny.selection.committee.utils.DataValidator;
 
 import java.util.Optional;
-//TODO data validation
+
 public class EnrolleService {
 
     private Enrollees enrollees = SingletonEnrollees.getInstance();
@@ -18,11 +19,13 @@ public class EnrolleService {
     }
 
     public void updateDataById(int id, Enrolle enrolle){
-        enrollees.update(id, enrolle);
+        if(validate(enrolle))
+            enrollees.update(id, enrolle);
     }
 
     public void record(Enrolle enrolle){
-        enrollees.add(enrolle);
+        if(validate(enrolle))
+            enrollees.add(enrolle);
     }
 
     public void excludeById(int id){
@@ -33,18 +36,49 @@ public class EnrolleService {
         return enrollees.toString();
     }
 
-    public String getAllSortedById(){
+    public String getAllSortedById() {
         enrollees.getEnrollees().sort(new EnrolleByIdComparator());
         return enrollees.toString();
     }
 
-    public String getAllSortedByMark(){
+    public String getAllSortedByMark() {
         enrollees.getEnrollees().sort(new EnrolleByMarkComparator());
         return enrollees.toString();
     }
 
-    public String getAllSortedByName(){
+    public String getAllSortedByName() {
         enrollees.getEnrollees().sort(new EnrolleByNameComparator());
         return enrollees.toString();
+    }
+
+    public boolean validate(Enrolle enrolle) {
+        var ct = enrolle.getCtCertificates();
+        var ac = enrolle.getAcademicCertificate();
+
+        if(ct == null || ac == null || enrolle.getMedicalCertificate() == null
+                || enrolle.getPersonalData() == null || enrolle.getSpecialtyName() == null)
+            return false;
+
+        if(ct.size() < 2 || ct.size() > 4)
+            return false;
+        for (var certificate: ct) {
+            if(!DataValidator.checkMark(certificate.getMark()))
+                return false;
+        }
+
+        if(ac.getMarks() == null)
+            return false;
+        for (var mark: ac.getMarks()) {
+            if(!DataValidator.checkSchoolMark(mark))
+                return false;
+        }
+
+        if(!DataValidator.checkMark(enrolle.getTotalMark()))
+            return false;
+
+        if(!DataValidator.checkWords(enrolle.getSpecialtyName()))
+            return false;
+
+        return DataValidator.checkName(enrolle.getFullName());
     }
 }
