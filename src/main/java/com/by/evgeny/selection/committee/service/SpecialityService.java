@@ -2,6 +2,7 @@ package com.by.evgeny.selection.committee.service;
 
 import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.entity.comparators.SpecialityByNameComparator;
+import com.by.evgeny.selection.committee.entity.comparators.SpecialityByPlacesComparator;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
 import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
@@ -22,9 +23,9 @@ public class SpecialityService {
         return specialities.get(code);
     }
 
-    public void updateDataById(int id, Speciality spec){
+    public void updateByCode(int code, Speciality spec){
         if(validate(spec))
-            specialities.update(id, spec);
+            specialities.update(code, spec);
     }
 
     public void add(Speciality spec){
@@ -32,20 +33,25 @@ public class SpecialityService {
             specialities.add(spec);
     }
 
-    public void delete(int id){
-        specialities.delete(id);
+    public void deleteByCode(int code){
+        specialities.delete(code);
     }
 
     public String getAll(){
         return specialities.toString();
     }
 
-    public String getAllSortedByName(){
+    public String getAllSortedByName() {
         specialities.getSpecialities().sort(new SpecialityByNameComparator());
         return specialities.toString();
     }
 
-    public String getFacultySpecialities(String facultyName){
+    public String getAllSortedByPlaces() {
+        specialities.getSpecialities().sort(new SpecialityByPlacesComparator());
+        return specialities.toString();
+    }
+
+    public String getFacultySpecialities(String facultyName) {
         var temp = new Specialities();
         temp.setSpecialities(specialities.getSpecialities().stream()
                 .filter(e -> e.getFacultyName().equals(facultyName))
@@ -54,6 +60,8 @@ public class SpecialityService {
     }
 
     public boolean validate(Speciality spec) {
+        if(spec == null)
+            return false;
         String[] subjects = spec.getRequiredSubjects();
         if(spec.getFacultyName() == null || spec.getName() == null
                 || spec.getEnrolled() == null || subjects == null)

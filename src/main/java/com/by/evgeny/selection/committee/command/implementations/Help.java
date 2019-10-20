@@ -1,5 +1,6 @@
-package com.by.evgeny.selection.committee.command;
+package com.by.evgeny.selection.committee.command.implementations;
 
+import com.by.evgeny.selection.committee.command.Command;
 import com.by.evgeny.selection.committee.controller.ConsoleAdapter;
 
 public class Help implements Command {

@@ -62,6 +62,9 @@ public class EnrolleService {
     }
 
     public boolean validate(Enrolle enrolle) {
+        if(enrolle == null)
+            return false;
+
         var ct = enrolle.getCtCertificates();
         var ac = enrolle.getAcademicCertificate();
 

@@ -20,4 +20,8 @@ public class DataValidator {
     public static boolean checkSchoolMark(int mark) {
         return mark >= 0 && mark <= 10;
     }
+
+    public static boolean checkPositive(int num) {
+        return num >= 0;
+    }
 }

@@ -1,5 +1,6 @@
-package com.by.evgeny.selection.committee.command;
+package com.by.evgeny.selection.committee.command.implementations;
 
+import com.by.evgeny.selection.committee.command.Command;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;

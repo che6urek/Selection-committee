@@ -4,11 +4,10 @@ import com.by.evgeny.selection.committee.entity.Speciality;
 
 import java.util.Comparator;
 
-public class SpecialityByNameComparator implements Comparator<Speciality> {
+public class SpecialityByPlacesComparator implements Comparator<Speciality> {
 
     @Override
     public int compare(Speciality speciality1, Speciality speciality2) {
-        return (speciality1.getFacultyName() + speciality1.getName())
-                .compareTo(speciality2.getFacultyName() + speciality2.getName());
+        return (speciality2.getPlaces() - speciality1.getPlaces());
     }
 }

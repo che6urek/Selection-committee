@@ -54,13 +54,9 @@ public class Speciality implements Serializable {
 
     }*/
 
-    public boolean enroll(Enrolle en){
+    public void enroll(Enrolle en){
         if(enrolled.getEnrollees().size() < places)
-        {
             enrolled.add(en);
-            return true;
-        }
-        return false;
     }
 
     public String getName() {

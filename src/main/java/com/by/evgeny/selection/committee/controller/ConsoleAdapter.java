@@ -1,6 +1,7 @@
 package com.by.evgeny.selection.committee.controller;
 
 import com.by.evgeny.selection.committee.command.CommandType;
+
 import static com.by.evgeny.selection.committee.command.CommandType.*;
 
 import java.util.HashMap;
@@ -12,8 +13,15 @@ public enum ConsoleAdapter {
     _2(2, "Display enrollees", DISPLAY_ENROLLEES),
     _3(3, "Display enrollees for speciality", DISPLAY_ENROLLE_FOR_SPECIALITY),
     _4(4, "Add enrolle", ADD_ENROLLE),
-    _5(5, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
-    _6(6, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID);
+    _5(5, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID),
+    _6(6, "Update enrolle by id", UPDATE_ENROLLE_BY_ID),
+    _7(7, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
+    _8(8, "Display specialities", DISPLAY_SPECIALITIES),
+    _9(9, "Display faculty specialities", DISPLAY_FACULTY_SPECIALITIES),
+    _10(10, "Add speciality", ADD_SPECIALITY),
+    _11(11, "Display speciality by code", DISPLAY_SPECIALITY_BY_CODE),
+    _12(12, "Update speciality by code", DELETE_SPECIALITY_BY_CODE),
+    _13(13, "Delete speciality by code", UPDATE_SPECIALITY_BY_CODE);
 
 
     private String description;

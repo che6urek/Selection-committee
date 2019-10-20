@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.command.input;
+package com.by.evgeny.selection.committee.command;
 
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
 

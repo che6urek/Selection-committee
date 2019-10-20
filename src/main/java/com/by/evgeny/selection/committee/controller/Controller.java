@@ -1,6 +1,6 @@
 package com.by.evgeny.selection.committee.controller;
 
-import com.by.evgeny.selection.committee.command.Help;
+import com.by.evgeny.selection.committee.command.implementations.Help;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
 //TODO javadoc
 public class Controller {
@@ -12,13 +12,15 @@ public class Controller {
         int cmd = ConsoleReader.nextInt();
         try {
             while (cmd != 0) {
-                ConsoleAdapter.getCommandByIndex(cmd).getCommand().execute();
+                try {
+                    ConsoleAdapter.getCommandByIndex(cmd).getCommand().execute();
+                }
+                catch (Exception e) {
+                    System.out.println("Unknown command");
+                }
                 cmd = ConsoleReader.nextInt();
             }
-            ConsoleAdapter
-                    .getCommandByIndex(cmd)
-                    .getCommand()
-                    .execute();
+            ConsoleAdapter.getCommandByIndex(cmd).getCommand().execute();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
