@@ -25,12 +25,12 @@ public class EnrolleService {
             enrollees.update(id, enrolle);
     }
 
-    public void record(Enrolle enrolle){
+    public void add(Enrolle enrolle){
         if(validate(enrolle))
             enrollees.add(enrolle);
     }
 
-    public void excludeById(int id){
+    public void deleteById(int id){
         enrollees.delete(id);
     }
 
@@ -76,7 +76,7 @@ public class EnrolleService {
                 return false;
         }
 
-        if(ac.getMarks() == null || !DataValidator.checkMark(ac.getAverageMark()))
+        if(ac.getMarks() == null || ac.getMarks().length < 1 || !DataValidator.checkMark(ac.getAverageMark()))
             return false;
         for (var mark: ac.getMarks()) {
             if(!DataValidator.checkSchoolMark(mark))

@@ -9,14 +9,14 @@ public class DeleteEnrolleById implements Command {
     public void execute() {
         var service = new EnrolleService();
 
-        System.out.println("Enter enrolle's ID: ");
+        System.out.print("Enter enrolle's ID: ");
         int id = ConsoleReader.nextInt();
         if(service.getById(id).isPresent()) {
             System.out.println("Are you sure you want to delete this enrolle? (Print \"yes\")");
             String answer = ConsoleReader.nextString();
             if (answer != null)
                 if (answer.toLowerCase().equals("yes")) {
-                    service.excludeById(id);
+                    service.deleteById(id);
                     System.out.println("Done.");
                     return;
                 }

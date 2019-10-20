@@ -11,8 +11,9 @@ public enum ConsoleAdapter {
     _1(1, "Help", HELP),
     _2(2, "Display enrollees", DISPLAY_ENROLLEES),
     _3(3, "Display enrollees for speciality", DISPLAY_ENROLLE_FOR_SPECIALITY),
+    _4(4, "Add enrolle", ADD_ENROLLE),
     _5(5, "Delete enrolle by id", DELETE_ENROLLE_BY_ID),
-    _6(6, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID),;
+    _6(6, "Display enrolle by id", DISPLAY_ENROLLE_BY_ID);
 
 
     private String description;

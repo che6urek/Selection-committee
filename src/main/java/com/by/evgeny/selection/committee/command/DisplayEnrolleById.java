@@ -9,7 +9,7 @@ public class DisplayEnrolleById implements Command {
     public void execute() {
         var service = new EnrolleService();
 
-        System.out.println("Enter enrolle's ID: ");
+        System.out.print("Enter enrolle's ID: ");
         service.getById(ConsoleReader.nextInt())
                 .ifPresentOrElse(System.out::println, () -> System.out.println("Nothing found"));
     }

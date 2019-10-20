@@ -32,7 +32,7 @@ public class SpecialityService {
             specialities.add(spec);
     }
 
-    public void remove(int id){
+    public void delete(int id){
         specialities.delete(id);
     }
 

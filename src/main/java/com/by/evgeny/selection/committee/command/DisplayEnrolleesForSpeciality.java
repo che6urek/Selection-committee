@@ -9,7 +9,7 @@ public class DisplayEnrolleesForSpeciality implements Command {
     public void execute() {
         var service = new EnrolleService();
 
-        System.out.println("Enter speciality name: ");
+        System.out.print("Enter speciality name: ");
         String result = service.getForSpeciality(ConsoleReader.nextString());
         System.out.println(result.isEmpty() ? "Nothing found" : result);
     }
