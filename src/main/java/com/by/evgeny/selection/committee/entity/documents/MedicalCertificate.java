@@ -1,6 +1,9 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
-public class MedicalCertificate  implements java.io.Serializable{
+import java.io.Serializable;
+
+public class MedicalCertificate  implements Serializable {
+
     //private String[] illnesses;
     //private String healthGroup;
     //private String healthInstitution;

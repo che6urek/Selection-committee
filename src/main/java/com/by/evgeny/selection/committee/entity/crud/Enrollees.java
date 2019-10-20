@@ -79,7 +79,7 @@ public class Enrollees implements CRUD<Enrolle> {
         this.maxId = maxId;
     }
 
-    public void updateMaxId(){
+    public void updateMaxId() {
         this.maxId = enrollees.stream()
                 .mapToInt(Entity::getId)
                 .max().orElse(0);

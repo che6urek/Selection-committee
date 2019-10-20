@@ -2,8 +2,8 @@ package com.by.evgeny.selection.committee.service;
 
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
-import com.by.evgeny.selection.committee.entity.person.EnrolleByMarkComparator;
-import com.by.evgeny.selection.committee.entity.person.EnrolleByNameComparator;
+import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
+import com.by.evgeny.selection.committee.entity.comparators.EnrolleByNameComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 
 public class EnrolleService {

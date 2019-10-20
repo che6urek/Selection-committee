@@ -1,6 +1,9 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
-public class CTCertificate  implements java.io.Serializable{
+import java.io.Serializable;
+
+public class CTCertificate  implements Serializable {
+
     //private int id;
     //private int year;
     //private Subject subject;

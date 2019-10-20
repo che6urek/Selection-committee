@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class Enrolle extends Person {
+
     private Boolean enrolled = false;
     private ArrayList<CTCertificate> ctCertificates;
     private AcademicCertificate academicCertificate;

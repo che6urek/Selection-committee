@@ -1,8 +1,5 @@
 package com.by.evgeny.selection.committee.entity.crud;
 
-import com.by.evgeny.selection.committee.entity.person.EnrolleByMarkComparator;
-import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
-import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.Speciality;
 
 import java.util.ArrayList;

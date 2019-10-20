@@ -1,6 +1,9 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
-public class PersonalData  implements java.io.Serializable{
+import java.io.Serializable;
+
+public class PersonalData  implements Serializable {
+
     private String name;
     private String surname;
     private String patronymic;

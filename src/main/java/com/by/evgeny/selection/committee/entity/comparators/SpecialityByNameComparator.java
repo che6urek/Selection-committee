@@ -1,4 +1,6 @@
-package com.by.evgeny.selection.committee.entity;
+package com.by.evgeny.selection.committee.entity.comparators;
+
+import com.by.evgeny.selection.committee.entity.Speciality;
 
 import java.util.Comparator;
 

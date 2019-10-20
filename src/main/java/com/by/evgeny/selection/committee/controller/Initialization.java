@@ -13,7 +13,8 @@ import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
 import java.util.ArrayList;
 
 public class Initialization {
-    public static void Init(){
+
+    public static void Init() {
 
         var xmlEnrolleReader = new XmlReader<Enrollees>();
 

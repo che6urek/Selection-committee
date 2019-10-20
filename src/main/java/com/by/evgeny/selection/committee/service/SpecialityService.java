@@ -1,12 +1,12 @@
 package com.by.evgeny.selection.committee.service;
 
 import com.by.evgeny.selection.committee.entity.Speciality;
-import com.by.evgeny.selection.committee.entity.SpecialityByNameComparator;
+import com.by.evgeny.selection.committee.entity.comparators.SpecialityByNameComparator;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
 import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
-import com.by.evgeny.selection.committee.entity.person.EnrolleByMarkComparator;
+import com.by.evgeny.selection.committee.entity.comparators.EnrolleByMarkComparator;
 import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
 
 import java.util.ArrayList;

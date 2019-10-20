@@ -1,12 +1,15 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
-public class AcademicCertificate  implements java.io.Serializable{
+import java.io.Serializable;
+
+public class AcademicCertificate  implements Serializable {
+
     //private String educationalInstitution;
     //private int year;
     private int[] marks;
     private int averageMark;
 
-    public AcademicCertificate(int[] marks){
+    public AcademicCertificate(int[] marks) {
         this.marks = marks;
         calculateAverageMark();
     }

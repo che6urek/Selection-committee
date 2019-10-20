@@ -5,6 +5,7 @@ import com.by.evgeny.selection.committee.entity.Entity;
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 public abstract class Person extends Entity {
+
     private PersonalData personalData;
     private String specialtyName;
 
