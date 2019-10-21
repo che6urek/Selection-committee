@@ -7,11 +7,11 @@ import com.by.evgeny.selection.committee.utils.DataValidator;
 public class CreateSpeciality {
 
     public static Speciality create() {
-        var name = EntryField.EnterString("name", DataValidator::checkName);
+        var name = EntryField.EnterString("name", DataValidator::checkSpeciality);
         if (name == null)
             return null;
 
-        var facultyName = EntryField.EnterString("faculty name", DataValidator::checkName);
+        var facultyName = EntryField.EnterString("faculty name", DataValidator::checkFaculty);
         if (facultyName == null)
             return null;
 

@@ -24,7 +24,7 @@ public class CreateEnrolle {
         if (patronymic == null)
             return null;
 
-        var speciality = EntryField.EnterString("speciality", DataValidator::checkWords);
+        var speciality = EntryField.EnterString("speciality", DataValidator::checkSpeciality);
         if (speciality == null)
             return null;
 
@@ -46,7 +46,7 @@ public class CreateEnrolle {
         var ct = new ArrayList<CTCertificate>();
         for (int i = 0; i < len; i++) {
             System.out.println("Enter CT certificate (" + (len - i) + " left): ");
-            var subject = EntryField.EnterString("subject", DataValidator::checkWords);
+            var subject = EntryField.EnterString("subject", DataValidator::checkSubject);
             if (subject == null)
                 return null;
             var mark = EntryField.EnterInt("mark", DataValidator::checkMark);

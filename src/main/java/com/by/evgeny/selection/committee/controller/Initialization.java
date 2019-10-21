@@ -12,7 +12,6 @@ import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
 import com.by.evgeny.selection.committee.utils.DataValidator;
 import com.by.evgeny.selection.committee.utils.Dictionary;
 
-import javax.xml.crypto.Data;
 import java.util.ArrayList;
 
 public class Initialization {
