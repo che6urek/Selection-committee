@@ -1,6 +1,10 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
+import javafx.beans.value.WritableMapValue;
+
 import java.io.Serializable;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class AcademicCertificate  implements Serializable {
 
@@ -41,6 +45,21 @@ public class AcademicCertificate  implements Serializable {
 
     public void setAverageMark(int averageMark) {
         this.averageMark = averageMark;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), marks, averageMark);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        AcademicCertificate ac = (AcademicCertificate) obj;
+        return Objects.equals(averageMark, ac.averageMark) &&
+                Arrays.equals(marks, ac.marks);
     }
 
     @Override

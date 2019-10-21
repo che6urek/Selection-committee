@@ -4,6 +4,7 @@ import com.by.evgeny.selection.committee.entity.Entity;
 import com.by.evgeny.selection.committee.entity.person.Student;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -84,6 +85,19 @@ public class Students implements CRUD<Student> {
         this.maxId = students.stream()
                 .mapToInt(Entity::getId)
                 .max().orElse(0);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Students st = (Students) obj;
+        return Objects.equals(students, st.students);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(students);
     }
 
     @Override

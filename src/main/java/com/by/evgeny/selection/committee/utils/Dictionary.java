@@ -3,9 +3,11 @@ package com.by.evgeny.selection.committee.utils;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Dictionary implements Serializable {
+
     private ArrayList<String> subjects = new ArrayList<String>();
     private ArrayList<String> specialities = new ArrayList<String>();
     private ArrayList<String> faculties = new ArrayList<String>();
@@ -63,6 +65,22 @@ public class Dictionary implements Serializable {
     }
 
     @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), subjects, specialities, faculties);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Dictionary dictionary = (Dictionary) obj;
+        return Objects.equals(subjects, dictionary.subjects) &&
+                Objects.equals(specialities, dictionary.specialities) &&
+                Objects.equals(faculties, dictionary.faculties);
+    }
+
+    @Override
     public String toString() {
         Collections.sort(subjects);
         Collections.sort(specialities);
@@ -76,5 +94,6 @@ public class Dictionary implements Serializable {
                 + "Faculties: " + System.lineSeparator()
                 + faculties.stream().map(String::toString)
                 .collect(Collectors.joining(System.lineSeparator()));
+
     }
 }

@@ -1,6 +1,7 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class PersonalData  implements Serializable {
 
@@ -43,6 +44,22 @@ public class PersonalData  implements Serializable {
 
     public void setPatronymic(String patronymic) {
         this.patronymic = patronymic;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, surname, patronymic);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        PersonalData pd = (PersonalData) obj;
+        return Objects.equals(name, pd.name) &&
+                Objects.equals(surname, pd.surname) &&
+                Objects.equals(patronymic, pd.patronymic);
     }
 
     @Override

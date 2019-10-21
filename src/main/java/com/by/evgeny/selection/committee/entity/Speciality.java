@@ -5,6 +5,8 @@ import com.by.evgeny.selection.committee.entity.person.Student;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class Speciality implements Serializable {
 
@@ -94,6 +96,25 @@ public class Speciality implements Serializable {
         this.maxId = enrolled.getStudents().stream()
                 .mapToInt(Entity::getId)
                 .max().orElse(0);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), name, facultyName, places, code, requiredSubjects, enrolled);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Speciality speciality = (Speciality) obj;
+        return Objects.equals(name, speciality.name) &&
+                Objects.equals(facultyName, speciality.facultyName) &&
+                Objects.equals(places, speciality.places) &&
+                Objects.equals(code, speciality.code) &&
+                Arrays.equals(requiredSubjects, speciality.requiredSubjects) &&
+                Objects.equals(enrolled, speciality.enrolled);
     }
 
     @Override

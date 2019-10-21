@@ -3,6 +3,7 @@ package com.by.evgeny.selection.committee.entity.crud;
 import com.by.evgeny.selection.committee.entity.Speciality;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
@@ -83,6 +84,19 @@ public class Specialities implements CRUD<Speciality> {
                 .mapToInt(Speciality::getMaxId)
                 .max().orElse(0);
 
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Specialities spec = (Specialities) obj;
+        return Objects.equals(specialities, spec.specialities);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(specialities);
     }
 
     @Override

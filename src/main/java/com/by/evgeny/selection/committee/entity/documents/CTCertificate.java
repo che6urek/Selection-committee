@@ -1,6 +1,7 @@
 package com.by.evgeny.selection.committee.entity.documents;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class CTCertificate  implements Serializable {
 
@@ -33,6 +34,21 @@ public class CTCertificate  implements Serializable {
 
     public void setMark(int mark) {
         this.mark = mark;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), subject, mark);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        CTCertificate ct = (CTCertificate) obj;
+        return Objects.equals(subject, ct.subject) &&
+                Objects.equals(mark, ct.mark);
     }
 
     @Override

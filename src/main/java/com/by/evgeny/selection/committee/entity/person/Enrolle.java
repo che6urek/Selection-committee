@@ -1,11 +1,13 @@
 package com.by.evgeny.selection.committee.entity.person;
 
+import com.by.evgeny.selection.committee.command.implementations.Enroll;
 import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
 import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
 import com.by.evgeny.selection.committee.entity.documents.MedicalCertificate;
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Enrolle extends Person {
@@ -62,6 +64,23 @@ public class Enrolle extends Person {
 
     public void setTotalMark(int totalMark) {
         this.totalMark = totalMark;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), ctCertificates, academicCertificate, medicalCertificate, totalMark);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Enrolle enrolle = (Enrolle) obj;
+        return Objects.equals(ctCertificates, enrolle.ctCertificates) &&
+                Objects.equals(academicCertificate, enrolle.academicCertificate) &&
+                Objects.equals(medicalCertificate, enrolle.medicalCertificate) &&
+                Objects.equals(totalMark, enrolle.totalMark);
     }
 
     @Override

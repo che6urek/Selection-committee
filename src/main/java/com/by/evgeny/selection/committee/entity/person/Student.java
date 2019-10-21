@@ -2,6 +2,8 @@ package com.by.evgeny.selection.committee.entity.person;
 
 import com.by.evgeny.selection.committee.entity.documents.PersonalData;
 
+import java.util.Objects;
+
 public class Student extends Person {
 
     //private int groupNo;
@@ -36,6 +38,21 @@ public class Student extends Person {
 
     public void setTicketNo(int ticketNo) {
         this.ticketNo = ticketNo;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(super.hashCode(), ticketNo, totalMark);
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!super.equals(obj)) return false;
+        Student speciality = (Student) obj;
+        return Objects.equals(ticketNo, speciality.ticketNo) &&
+                Objects.equals(totalMark, speciality.totalMark);
     }
 
     @Override
