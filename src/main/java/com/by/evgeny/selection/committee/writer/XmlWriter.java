@@ -6,6 +6,12 @@ import com.fasterxml.jackson.xml.XmlMapper;
 import java.io.File;
 
 public class XmlWriter<T> {
+    /***
+     * Serialize object to the XML file
+     * @param object object to serialize
+     * @param fileName name of the file for saving
+     * @throws XmlException is invoked on any error occurs while processing
+     */
     public void write(T object, String fileName) throws XmlException {
         try {
             XmlMapper xmlMapper = new XmlMapper();
