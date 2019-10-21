@@ -12,8 +12,8 @@ public class Students implements CRUD<Student> {
     private ArrayList<Student> students;
     private int maxId;
 
-    public Students(ArrayList<Student> students) {
-        this.students = students;
+    public Students() {
+        this.students = new ArrayList<Student>();
     }
 
     @Override
@@ -62,6 +62,14 @@ public class Students implements CRUD<Student> {
     @Override
     public void delete(Student student) {
         students.remove(student);
+    }
+
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
     public int getMaxId() {

@@ -7,17 +7,15 @@ public class Student extends Person {
     //private int groupNo;
     private int ticketNo;
     private int totalMark;
-    private String specialityName;
 
-    public Student(PersonalData personalData, String specialtyName, int ticketNo, int totalMark, String specialityName) {
+    public Student(PersonalData personalData, String specialtyName, int ticketNo, int totalMark) {
         super(personalData, specialtyName);
         this.ticketNo = ticketNo;
         this.totalMark = totalMark;
-        this.specialityName = specialityName;
     }
 
-    public Student(PersonalData personalData, String specialtyName, int totalMark, String specialityName) {
-        this(personalData, specialtyName, 0, totalMark, specialityName);
+    public Student(PersonalData personalData, String specialtyName, int totalMark) {
+        this(personalData, specialtyName, 0, totalMark);
     }
 
     public Student() {
@@ -38,14 +36,6 @@ public class Student extends Person {
 
     public void setTicketNo(int ticketNo) {
         this.ticketNo = ticketNo;
-    }
-
-    public String getSpecialityName() {
-        return specialityName;
-    }
-
-    public void setSpecialityName(String specialityName) {
-        this.specialityName = specialityName;
     }
 
     @Override

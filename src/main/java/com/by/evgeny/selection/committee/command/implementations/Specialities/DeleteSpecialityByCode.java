@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.command.implementations;
+package com.by.evgeny.selection.committee.command.implementations.Specialities;
 
 import com.by.evgeny.selection.committee.command.Command;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
@@ -12,7 +12,9 @@ public class DeleteSpecialityByCode implements Command {
 
         System.out.print("Enter speciality code: ");
         int code = ConsoleReader.nextInt();
-        if (service.getByCode(code).isPresent()) {
+        if (service
+                .getByCode(code)
+                .isPresent()) {
             System.out.println("Are you sure you want to delete this speciality? (Print \"yes\")");
             String answer = ConsoleReader.nextString();
             if (answer != null)

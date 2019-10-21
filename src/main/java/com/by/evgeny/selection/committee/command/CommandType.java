@@ -1,6 +1,10 @@
 package com.by.evgeny.selection.committee.command;
 
 import com.by.evgeny.selection.committee.command.implementations.*;
+import com.by.evgeny.selection.committee.command.implementations.Dictionary.*;
+import com.by.evgeny.selection.committee.command.implementations.Enrollees.*;
+import com.by.evgeny.selection.committee.command.implementations.Specialities.*;
+import com.by.evgeny.selection.committee.command.implementations.Students.*;
 
 public enum CommandType {
 
@@ -17,7 +21,10 @@ public enum CommandType {
     DISPLAY_SPECIALITY_BY_CODE      (new DisplaySpecialityByCode()),
     DELETE_SPECIALITY_BY_CODE       (new DeleteSpecialityByCode()),
     UPDATE_SPECIALITY_BY_CODE       (new UpdateSpecialityByCode()),
-    DISPLAY_ENROLLED_BY_CODE        (new DisplayEnrolledByCode()),
+    DISPLAY_STUDENTS                (new DisplayStudents()),
+    DISPLAY_STUDENT_BY_ID           (new DisplayStudentById()),
+    UPDATE_STUDENT_BY_ID            (new UpdateStudentById()),
+    DELETE_STUDENT_BY_ID            (new DeleteStudentById()),
     ENROLL                          (new Enroll()),
     DISPLAY_DICTIONARY              (new DisplayDictionary()),
     EDIT_DICTIONARY                 (new EditDictionary()),

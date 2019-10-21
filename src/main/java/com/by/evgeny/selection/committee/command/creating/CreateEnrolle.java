@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.command;
+package com.by.evgeny.selection.committee.command.creating;
 
 import com.by.evgeny.selection.committee.entity.documents.AcademicCertificate;
 import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
@@ -11,18 +11,9 @@ import com.by.evgeny.selection.committee.utils.DataValidator;
 import java.util.ArrayList;
 
 public class CreateEnrolle {
+
     public static Enrolle create() {
-        var surname = EntryField.EnterString("surname", DataValidator::checkName);
-        if (surname == null)
-            return null;
-
-        var name = EntryField.EnterString("name", DataValidator::checkName);
-        if (name == null)
-            return null;
-
-        var patronymic = EntryField.EnterString("patronymic", DataValidator::checkName);
-        if (patronymic == null)
-            return null;
+        var personalData = CreatePersonalData.create();
 
         var speciality = EntryField.EnterString("speciality", DataValidator::checkSpeciality);
         if (speciality == null)
@@ -62,7 +53,6 @@ public class CreateEnrolle {
             if (answer.toLowerCase().equals("yes"))
                 allowed = true;
 
-        return new Enrolle(new PersonalData(name, surname, patronymic),
-                speciality, ct, new AcademicCertificate(marks), new MedicalCertificate(allowed));
+        return new Enrolle(personalData, speciality, ct, new AcademicCertificate(marks), new MedicalCertificate(allowed));
     }
 }

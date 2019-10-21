@@ -3,6 +3,7 @@ package com.by.evgeny.selection.committee.controller;
 import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
+import com.by.evgeny.selection.committee.entity.crud.Students;
 import com.by.evgeny.selection.committee.entity.person.Student;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.by.evgeny.selection.committee.reader.XmlReader;
@@ -41,7 +42,9 @@ public class Initialization {
                 specialities = (new Specialities());
             for (Speciality spec: specialities.getSpecialities()) {
                 if (spec.getEnrolled() == null)
-                    spec.setEnrolled((new ArrayList<Student>()));
+                    spec.setEnrolled(new Students());
+                if(spec.getEnrolled().getStudents() == null)
+                    spec.getEnrolled().setStudents(new ArrayList<Student>());
             }
             SingletonSpecialities.init(specialities);
             specialities.updateMaxId();

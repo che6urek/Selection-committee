@@ -4,6 +4,7 @@ import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.entity.comparators.*;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.crud.Specialities;
+import com.by.evgeny.selection.committee.entity.crud.Students;
 import com.by.evgeny.selection.committee.entity.documents.CTCertificate;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.entity.person.Student;
@@ -61,8 +62,8 @@ public class SpecialityService {
 
     public String getEnrolledByCode(int code) {
         if (specialities.get(code).isPresent()) {
-            ArrayList<Student> students = specialities.get(code).get().getEnrolled();
-            return students.stream()
+            Students students = specialities.get(code).get().getEnrolled();
+            return students.getStudents().stream()
                     .map(Student::toString)
                     .collect(Collectors.joining(System.lineSeparator() + System.lineSeparator()));
         }
@@ -82,7 +83,7 @@ public class SpecialityService {
             if(!DataValidator.checkWords(subject))
                 return false;
         }
-        for (Student student: spec.getEnrolled()) {
+        for (Student student: spec.getEnrolled().getStudents()) {
             if(!validateStudent(student))
                 return false;
         }
@@ -95,7 +96,7 @@ public class SpecialityService {
         return spec.getPlaces() >= 0;
     }
 
-    private boolean validateStudent(Student student) {
+    public static boolean validateStudent(Student student) {
         if (student == null)
             return false;
 
@@ -126,7 +127,7 @@ public class SpecialityService {
             if (spec != null)
                 if(checkSubjects(enrolle.getCtCertificates(), spec.getRequiredSubjects())) {
                     spec.enroll(new Student(enrolle.getPersonalData(), enrolle.getSpecialtyName(),
-                            enrolle.getTotalMark(), enrolle.getSpecialtyName()));
+                            enrolle.getTotalMark()));
                 }
         }
         generateTicketNo();
@@ -134,14 +135,14 @@ public class SpecialityService {
 
     private void clear() {
         for (Speciality spec: specialities.getSpecialities()) {
-            spec.setEnrolled(new ArrayList<Student>());
+            spec.setEnrolled(new Students());
         }
     }
 
     private void generateTicketNo() {
         for (Speciality spec: specialities.getSpecialities()) {
             int i = 0;
-            var temp = new ArrayList<Student>(spec.getEnrolled());
+            var temp = new ArrayList<Student>(spec.getEnrolled().getStudents());
             temp.sort(new PersonByNameComparator());
             for (Student student: temp) {
                 student.setTicketNo((Year.now().getValue() % 10) * 10000000 + spec.getCode() * 10000 + ++i);

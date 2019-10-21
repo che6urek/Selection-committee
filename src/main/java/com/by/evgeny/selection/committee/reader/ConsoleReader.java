@@ -9,13 +9,6 @@ public class ConsoleReader {
     private ConsoleReader() {
     }
 
-    public static int nextSafeInt() {
-        if (scanner.hasNext()) {
-            return Integer.parseInt(scanner.next());
-        }
-        return 0;
-    }
-
     public static int nextInt() {
         if (scanner.hasNext()) {
             try {

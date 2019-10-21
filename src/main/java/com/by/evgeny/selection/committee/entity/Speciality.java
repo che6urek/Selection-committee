@@ -1,5 +1,6 @@
 package com.by.evgeny.selection.committee.entity;
 
+import com.by.evgeny.selection.committee.entity.crud.Students;
 import com.by.evgeny.selection.committee.entity.person.Student;
 
 import java.io.Serializable;
@@ -12,7 +13,7 @@ public class Speciality implements Serializable {
     private int places;
     private int code;
     private String[] requiredSubjects;
-    private ArrayList<Student> enrolled;
+    private Students enrolled;
     private int maxId;
 
     public Speciality(String name, String facultyName, int places, String[] requiredSubjects, int code) {
@@ -20,16 +21,16 @@ public class Speciality implements Serializable {
         this.facultyName = facultyName;
         this.places = places;
         this.requiredSubjects = requiredSubjects;
-        enrolled = new ArrayList<Student>();
+        enrolled = new Students();
         this.code = code;
     }
 
     public Speciality() {
-        enrolled = new ArrayList<Student>();
+        enrolled = new Students();
     }
 
     public void enroll(Student student){
-        if (enrolled.size() < places)
+        if (enrolled.getStudents().size() < places)
             enrolled.add(student);
     }
 
@@ -65,11 +66,11 @@ public class Speciality implements Serializable {
         this.requiredSubjects = requiredSubjects;
     }
 
-    public ArrayList<Student> getEnrolled() {
+    public Students getEnrolled() {
         return enrolled;
     }
 
-    public void setEnrolled(ArrayList<Student> enrolled) {
+    public void setEnrolled(Students enrolled) {
         this.enrolled = enrolled;
     }
 
@@ -90,7 +91,7 @@ public class Speciality implements Serializable {
     }
 
     public void updateMaxId() {
-        this.maxId = enrolled.stream()
+        this.maxId = enrolled.getStudents().stream()
                 .mapToInt(Entity::getId)
                 .max().orElse(0);
     }
@@ -106,7 +107,7 @@ public class Speciality implements Serializable {
         for (int i = 1; i < requiredSubjects.length; i++) {
             result.append(", ").append(requiredSubjects[i]);
         }
-        result.append(System.lineSeparator()).append("Enrolled: ").append(enrolled.size());
+        result.append(System.lineSeparator()).append("Enrolled: ").append(enrolled.getStudents().size());
         return result.toString();
     }
 }

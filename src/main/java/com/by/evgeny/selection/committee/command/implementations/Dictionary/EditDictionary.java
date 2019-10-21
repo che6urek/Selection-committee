@@ -1,7 +1,7 @@
-package com.by.evgeny.selection.committee.command.implementations;
+package com.by.evgeny.selection.committee.command.implementations.Dictionary;
 
 import com.by.evgeny.selection.committee.command.Command;
-import com.by.evgeny.selection.committee.command.EntryField;
+import com.by.evgeny.selection.committee.command.creating.EntryField;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
 import com.by.evgeny.selection.committee.service.DictionaryService;
 import com.by.evgeny.selection.committee.utils.DataValidator;

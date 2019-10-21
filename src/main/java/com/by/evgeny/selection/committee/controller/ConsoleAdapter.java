@@ -21,12 +21,15 @@ public enum ConsoleAdapter {
     _9(9, "Display faculty specialities", DISPLAY_FACULTY_SPECIALITIES),
     _10(10, "Add speciality", ADD_SPECIALITY),
     _11(11, "Display speciality by code", DISPLAY_SPECIALITY_BY_CODE),
-    _12(12, "Update speciality by code", DELETE_SPECIALITY_BY_CODE),
-    _13(13, "Delete speciality by code", UPDATE_SPECIALITY_BY_CODE),
-    _14(14, "Display enrolled by speciality code", DISPLAY_ENROLLED_BY_CODE),
-    _15(15, "Enroll", ENROLL),
-    _16(16, "Display dictionary", DISPLAY_DICTIONARY),
-    _17(17, "Edit dictionary", EDIT_DICTIONARY);
+    _12(12, "Update speciality by code", UPDATE_SPECIALITY_BY_CODE),
+    _13(13, "Delete speciality by code", DELETE_SPECIALITY_BY_CODE),
+    _14(14, "Display speciality students", DISPLAY_STUDENTS),
+    _15(15, "Display student by id", DISPLAY_STUDENT_BY_ID),
+    _16(16, "Update student by id", UPDATE_STUDENT_BY_ID),
+    _17(17, "Delete student by id", DELETE_STUDENT_BY_ID),
+    _19(19, "Enroll", ENROLL),
+    _20(20, "Display dictionary", DISPLAY_DICTIONARY),
+    _21(21, "Edit dictionary", EDIT_DICTIONARY);
 
 
     private String description;

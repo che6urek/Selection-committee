@@ -1,11 +1,10 @@
-package com.by.evgeny.selection.committee.command.implementations;
+package com.by.evgeny.selection.committee.command.implementations.Enrollees;
 
 import com.by.evgeny.selection.committee.command.Command;
-import com.by.evgeny.selection.committee.command.CreateEnrolle;
+import com.by.evgeny.selection.committee.command.creating.CreateEnrolle;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
 import com.by.evgeny.selection.committee.service.EnrolleService;
-import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 
 public class UpdateEnrolleById implements Command {
 
@@ -15,10 +14,12 @@ public class UpdateEnrolleById implements Command {
 
         System.out.print("Enter enrolle's ID: ");
         int id = ConsoleReader.nextInt();
-        if (service.getById(id).isPresent()) {
+        if (service
+                .getById(id)
+                .isPresent()) {
             System.out.println("Are you sure you want to change enrolle's data? The previous values will be deleted (Print \"yes\")");
             String answer = ConsoleReader.nextString();
-            if (answer != null)
+            if (answer != null) {
                 if (answer.toLowerCase().equals("yes")) {
                     Enrolle enrolle = CreateEnrolle.create();
                     if (enrolle != null) {
@@ -26,7 +27,9 @@ public class UpdateEnrolleById implements Command {
                         System.out.println("Done.");
                     }
                 }
-            System.out.println("Aborted by user.");
+                else
+                    System.out.println("Aborted by user.");
+            }
         }
         else
             System.out.println("Nothing found");

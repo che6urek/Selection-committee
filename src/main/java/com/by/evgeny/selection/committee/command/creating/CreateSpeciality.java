@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.command;
+package com.by.evgeny.selection.committee.command.creating;
 
 import com.by.evgeny.selection.committee.entity.Speciality;
 import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;

@@ -1,4 +1,4 @@
-package com.by.evgeny.selection.committee.command.implementations;
+package com.by.evgeny.selection.committee.command.implementations.Dictionary;
 
 import com.by.evgeny.selection.committee.command.Command;
 import com.by.evgeny.selection.committee.service.DictionaryService;
