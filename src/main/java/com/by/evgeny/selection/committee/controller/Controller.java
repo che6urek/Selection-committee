@@ -2,6 +2,7 @@ package com.by.evgeny.selection.committee.controller;
 
 import com.by.evgeny.selection.committee.command.implementations.Help;
 import com.by.evgeny.selection.committee.reader.ConsoleReader;
+import com.by.evgeny.selection.committee.utils.Dictionary;
 
 //TODO javadoc
 
@@ -11,7 +12,6 @@ public class Controller {
 
         Initialization.Init();
         new Help().execute();
-
         int cmd = ConsoleReader.nextInt();
         try {
             while (cmd != 0) {
