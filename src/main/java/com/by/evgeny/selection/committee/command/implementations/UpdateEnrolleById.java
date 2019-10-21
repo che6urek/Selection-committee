@@ -22,7 +22,7 @@ public class UpdateEnrolleById implements Command {
                 if (answer.toLowerCase().equals("yes")) {
                     Enrolle enrolle = CreateEnrolle.create();
                     if (enrolle != null) {
-                        SingletonEnrollees.getInstance().update(id, enrolle);
+                        service.updateById(id, enrolle);
                         System.out.println("Done.");
                     }
                 }

@@ -1,6 +1,6 @@
 package com.by.evgeny.selection.committee.service;
 
-import com.by.evgeny.selection.committee.entity.comparators.EnrolleByIdComparator;
+import com.by.evgeny.selection.committee.entity.comparators.PersonByIdComparator;
 import com.by.evgeny.selection.committee.entity.comparators.PersonByNameComparator;
 import com.by.evgeny.selection.committee.entity.crud.Enrollees;
 import com.by.evgeny.selection.committee.entity.person.Enrolle;
@@ -20,7 +20,7 @@ public class EnrolleService {
         return enrollees.get(id);
     }
 
-    public void updateDataById(int id, Enrolle enrolle){
+    public void updateById(int id, Enrolle enrolle){
         if (validate(enrolle))
             enrollees.update(id, enrolle);
     }
@@ -39,7 +39,7 @@ public class EnrolleService {
     }
 
     public String getAllSortedById() {
-        enrollees.getEnrollees().sort(new EnrolleByIdComparator());
+        enrollees.getEnrollees().sort(new PersonByIdComparator());
         return enrollees.toString();
     }
 

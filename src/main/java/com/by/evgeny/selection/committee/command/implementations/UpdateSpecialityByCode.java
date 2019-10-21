@@ -23,7 +23,7 @@ public class UpdateSpecialityByCode implements Command {
                 if (answer.toLowerCase().equals("yes")) {
                     Speciality speciality = CreateSpeciality.create();
                     if (speciality != null) {
-                        SingletonSpecialities.getInstance().update(code, speciality);
+                        service.updateByCode(code, speciality);
                         System.out.println("Done.");
                     }
                 }
