@@ -19,6 +19,8 @@ public enum CommandType {
     UPDATE_SPECIALITY_BY_CODE       (new UpdateSpecialityByCode()),
     DISPLAY_ENROLLED_BY_CODE        (new DisplayEnrolledByCode()),
     ENROLL                          (new Enroll()),
+    DISPLAY_DICTIONARY              (new DisplayDictionary()),
+    EDIT_DICTIONARY                 (new EditDictionary()),
     HELP                            (new Help());
 
     private Command command;

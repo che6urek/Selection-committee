@@ -6,6 +6,8 @@ import com.by.evgeny.selection.committee.entity.crud.Specialities;
 import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.by.evgeny.selection.committee.singleton.SingletonEnrollees;
 import com.by.evgeny.selection.committee.singleton.SingletonSpecialities;
+import com.by.evgeny.selection.committee.utils.DataValidator;
+import com.by.evgeny.selection.committee.utils.Dictionary;
 import com.by.evgeny.selection.committee.writer.XmlWriter;
 
 public class Exit implements Command {
@@ -23,6 +25,14 @@ public class Exit implements Command {
         var xmlSpecialitiesWriter = new XmlWriter<Specialities>();
         try {
             xmlSpecialitiesWriter.write(SingletonSpecialities.getInstance(), "specialities.xml");
+        }
+        catch (XmlException e) {
+            System.out.println(e.getMessage());
+        }
+
+        var xmlDictionaryWriter = new XmlWriter<Dictionary>();
+        try {
+            xmlDictionaryWriter.write(DataValidator.getDictionary(), "dictionary.xml");
         }
         catch (XmlException e) {
             System.out.println(e.getMessage());

@@ -69,12 +69,12 @@ public class Dictionary implements Serializable {
         Collections.sort(faculties);
         return "Subjects: " + System.lineSeparator()
                 + subjects.stream().map(String::toString)
-                .collect(Collectors.joining(System.lineSeparator())) + System.lineSeparator()
+                .collect(Collectors.joining(System.lineSeparator())) + System.lineSeparator()  + System.lineSeparator()
                 + "Specialities: " + System.lineSeparator()
                 + specialities.stream().map(String::toString)
-                .collect(Collectors.joining(System.lineSeparator()))  + System.lineSeparator()
+                .collect(Collectors.joining(System.lineSeparator()))  + System.lineSeparator()  + System.lineSeparator()
                 + "Faculties: " + System.lineSeparator()
                 + faculties.stream().map(String::toString)
-                .collect(Collectors.joining(System.lineSeparator()))  + System.lineSeparator();
+                .collect(Collectors.joining(System.lineSeparator()));
     }
 }

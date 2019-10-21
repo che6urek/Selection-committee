@@ -24,7 +24,9 @@ public enum ConsoleAdapter {
     _12(12, "Update speciality by code", DELETE_SPECIALITY_BY_CODE),
     _13(13, "Delete speciality by code", UPDATE_SPECIALITY_BY_CODE),
     _14(14, "Display enrolled by speciality code", DISPLAY_ENROLLED_BY_CODE),
-    _15(15, "Enroll", ENROLL);
+    _15(15, "Enroll", ENROLL),
+    _16(16, "Display dictionary", DISPLAY_DICTIONARY),
+    _17(17, "Edit dictionary", EDIT_DICTIONARY);
 
 
     private String description;
