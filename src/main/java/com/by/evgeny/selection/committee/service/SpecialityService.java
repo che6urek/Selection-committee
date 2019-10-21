@@ -14,7 +14,6 @@ import com.by.evgeny.selection.committee.utils.DataValidator;
 import java.time.Year;
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class SpecialityService {
 
@@ -52,24 +51,6 @@ public class SpecialityService {
         return specialities.toString();
     }
 
-    public String getFacultySpecialities(String facultyName) {
-        var temp = new Specialities();
-        temp.setSpecialities(specialities.getSpecialities().stream()
-                .filter(e -> e.getFacultyName().equals(facultyName))
-                .collect(Collectors.toCollection(ArrayList::new)));
-        return temp.toString();
-    }
-
-    public String getEnrolledByCode(int code) {
-        if (specialities.get(code).isPresent()) {
-            Students students = specialities.get(code).get().getEnrolled();
-            return students.getStudents().stream()
-                    .map(Student::toString)
-                    .collect(Collectors.joining(System.lineSeparator() + System.lineSeparator()));
-        }
-        return null;
-    }
-
     public boolean validate(Speciality spec) {
         if (spec == null)
             return false;
@@ -87,7 +68,7 @@ public class SpecialityService {
             if(!validateStudent(student))
                 return false;
         }
-        if (!DataValidator.checkCode(spec.getCode()))
+        if (!DataValidator.checkSpecialityCode(spec.getCode()))
             return false;
         for (Speciality speciality: specialities.getSpecialities()) {
             if(spec.getCode() == speciality.getCode())

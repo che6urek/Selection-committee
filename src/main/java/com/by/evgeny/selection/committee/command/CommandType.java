@@ -3,6 +3,7 @@ package com.by.evgeny.selection.committee.command;
 import com.by.evgeny.selection.committee.command.implementations.*;
 import com.by.evgeny.selection.committee.command.implementations.Dictionary.*;
 import com.by.evgeny.selection.committee.command.implementations.Enrollees.*;
+import com.by.evgeny.selection.committee.command.implementations.Faculties.*;
 import com.by.evgeny.selection.committee.command.implementations.Specialities.*;
 import com.by.evgeny.selection.committee.command.implementations.Students.*;
 
@@ -16,7 +17,6 @@ public enum CommandType {
     UPDATE_ENROLLE_BY_ID            (new UpdateEnrolleById()),
     DELETE_ENROLLE_BY_ID            (new DeleteEnrolleById()),
     DISPLAY_SPECIALITIES            (new DisplaySpecialities()),
-    DISPLAY_FACULTY_SPECIALITIES    (new DisplayFacultySpecialities()),
     ADD_SPECIALITY                  (new AddSpeciality()),
     DISPLAY_SPECIALITY_BY_CODE      (new DisplaySpecialityByCode()),
     DELETE_SPECIALITY_BY_CODE       (new DeleteSpecialityByCode()),
@@ -26,6 +26,11 @@ public enum CommandType {
     DISPLAY_STUDENT_BY_ID           (new DisplayStudentById()),
     UPDATE_STUDENT_BY_ID            (new UpdateStudentById()),
     DELETE_STUDENT_BY_ID            (new DeleteStudentById()),
+    DISPLAY_FACULTIES               (new DisplayFaculties()),
+    ADD_FACULTY                     (new AddFaculty()),
+    DISPLAY_FACULTY_BY_CODE         (new DisplayFacultyByCode()),
+    DELETE_FACULTY_BY_CODE          (new DeleteFacultyByCode()),
+    DISPLAY_FACULTY_SPECIALITIES    (new DisplayFacultySpecialities()),
     ENROLL                          (new Enroll()),
     DISPLAY_DICTIONARY              (new DisplayDictionary()),
     EDIT_DICTIONARY                 (new EditDictionary()),

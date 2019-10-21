@@ -24,38 +24,38 @@ public class Specialities implements CRUD<Speciality> {
     @Override
     public Optional<Speciality> get(int code) {
         return this.specialities.stream()
-                .filter(e -> e.getCode() == code)
+                .filter(s -> s.getCode() == code)
                 .findFirst();
     }
     @Override
     public Optional<Speciality> get(String fullName) {
         return this.specialities.stream()
-                .filter(e -> e.getName().equals(fullName))
+                .filter(s -> s.getName().equals(fullName))
                 .findFirst();
     }
 
     @Override
     public void update(int code, Speciality newSpeciality) {
         this.specialities = this.specialities.stream()
-                .map(e -> (e.getCode() == code) ? newSpeciality : e)
+                .map(s -> (s.getCode() == code) ? newSpeciality : s)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
     @Override
     public void update(String name, Speciality newSpeciality) {
         this.specialities = this.specialities.stream()
-                .map(e -> (e.getName().equals(name)) ? newSpeciality : e)
+                .map(s -> (s.getName().equals(name)) ? newSpeciality : s)
                 .collect(Collectors.toCollection(ArrayList::new));
     }
 
     @Override
     public void delete(int code) {
-        specialities.removeIf(e -> e.getCode() == code);
+        specialities.removeIf(s -> s.getCode() == code);
     }
 
     @Override
     public void delete(String name) {
-        specialities.removeIf(e -> e.getName().equals(name));
+        specialities.removeIf(s -> s.getName().equals(name));
     }
 
     @Override

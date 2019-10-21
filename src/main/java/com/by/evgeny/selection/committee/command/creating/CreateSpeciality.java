@@ -19,7 +19,7 @@ public class CreateSpeciality {
         if (places < 0)
             return null;
 
-        var code = EntryField.EnterInt("code", DataValidator::checkCode);
+        var code = EntryField.EnterInt("code", DataValidator::checkSpecialityCode);
         if (code < 0)
             return null;
 
