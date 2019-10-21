@@ -103,7 +103,7 @@ public class SpecialityService {
         if (student.getPersonalData() == null || student.getSpecialtyName() == null)
             return false;
 
-        if (!DataValidator.checkMark(student.getTotalMark()))
+        if (!DataValidator.checkTotalMark(student.getTotalMark()))
             return false;
 
         if (!DataValidator.checkWords(student.getSpecialtyName()))

@@ -17,8 +17,11 @@ public class StudentService {
 
     public StudentService(Speciality spec) {
         if (spec != null) {
-            if (spec.getEnrolled() != null)
-                students = spec.getEnrolled();
+            speciality = spec;
+            if (speciality.getEnrolled() != null)
+                students = speciality.getEnrolled();
+            else
+                speciality.setEnrolled(new Students());
         }
     }
 
@@ -27,12 +30,13 @@ public class StudentService {
     }
 
     public void updateById(int id, Student student) {
-        if (SpecialityService.validateStudent(student))
+        if (SpecialityService.validateStudent(student) && speciality.getName().equals(student.getSpecialtyName()))
             students.update(id, student);
     }
 
     public void add(Student student){
-        if (SpecialityService.validateStudent(student) && (speciality.getPlaces() - students.getStudents().size() > 0))
+        if (SpecialityService.validateStudent(student) && (speciality.getPlaces() -
+                students.getStudents().size() > 0) && speciality.getName().equals(student.getSpecialtyName()))
             students.add(student);
     }
 

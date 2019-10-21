@@ -24,9 +24,10 @@ public enum ConsoleAdapter {
     _12(12, "Update speciality by code", UPDATE_SPECIALITY_BY_CODE),
     _13(13, "Delete speciality by code", DELETE_SPECIALITY_BY_CODE),
     _14(14, "Display speciality students", DISPLAY_STUDENTS),
-    _15(15, "Display student by id", DISPLAY_STUDENT_BY_ID),
-    _16(16, "Update student by id", UPDATE_STUDENT_BY_ID),
-    _17(17, "Delete student by id", DELETE_STUDENT_BY_ID),
+    _15(15, "Add student", ADD_STUDENT),
+    _16(16, "Display student by id", DISPLAY_STUDENT_BY_ID),
+    _17(17, "Update student by id", UPDATE_STUDENT_BY_ID),
+    _18(18, "Delete student by id", DELETE_STUDENT_BY_ID),
     _19(19, "Enroll", ENROLL),
     _20(20, "Display dictionary", DISPLAY_DICTIONARY),
     _21(21, "Edit dictionary", EDIT_DICTIONARY);

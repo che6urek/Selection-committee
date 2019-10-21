@@ -26,13 +26,17 @@ public class UpdateStudentById implements Command {
             if (service
                     .getById(id)
                     .isPresent()) {
-                System.out.println("Are you sure you want to change enrolle's data?"
+                System.out.println("Are you sure you want to change student's data?"
                         + " The previous values will be deleted (Print \"yes\")");
                 String answer = ConsoleReader.nextString();
                 if (answer != null) {
                     if (answer.toLowerCase().equals("yes")) {
                         Student student = CreateStudent.create();
                         if (student != null) {
+                            student.setSpecialtyName(service
+                                    .getById(id)
+                                    .get()
+                                    .getSpecialtyName());
                             service.updateById(id, student);
                             System.out.println("Done.");
                         }

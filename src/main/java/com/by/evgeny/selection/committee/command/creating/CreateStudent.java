@@ -9,13 +9,15 @@ public class CreateStudent {
     public static Student create() {
         var personalData = CreatePersonalData.create();
 
-        var speciality = EntryField.EnterString("speciality", DataValidator::checkSpeciality);
-        if (speciality == null)
-            return null;
+        var speciality = "";
 
         var totalMark = EntryField.EnterInt("total mark", DataValidator::checkTotalMark);
+        if(totalMark < 0)
+            return null;
 
         var ticketNo = EntryField.EnterInt("ticketNo.", DataValidator::checkPositive);
+        if (ticketNo < 0)
+            return null;
 
         return new Student(personalData, speciality, ticketNo, totalMark);
     }

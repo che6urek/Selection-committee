@@ -22,6 +22,7 @@ public enum CommandType {
     DELETE_SPECIALITY_BY_CODE       (new DeleteSpecialityByCode()),
     UPDATE_SPECIALITY_BY_CODE       (new UpdateSpecialityByCode()),
     DISPLAY_STUDENTS                (new DisplayStudents()),
+    ADD_STUDENT                     (new AddStudent()),
     DISPLAY_STUDENT_BY_ID           (new DisplayStudentById()),
     UPDATE_STUDENT_BY_ID            (new UpdateStudentById()),
     DELETE_STUDENT_BY_ID            (new DeleteStudentById()),
