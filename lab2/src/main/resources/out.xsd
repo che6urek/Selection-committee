@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="SelectionCommittee">
+        <xsd:complexType mixed="true">
+            <xsd:sequence>
+                <xsd:element name="Specialities" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="speciality" maxOccurs="unbounded">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="name" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="places" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                        <xsd:element name="enrolled" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                        <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Faculties" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="faculty" maxOccurs="unbounded">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="name" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Students" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="student" maxOccurs="unbounded">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                        <xsd:element name="personalData" type="personalDataType"/>
+                                        <xsd:element name="specialtyName" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="ticketNo" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                        <xsd:element name="totalMark" minOccurs="0" type="totalMarkType"/>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+                <xsd:element name="Enrollees" minOccurs="0">
+                    <xsd:complexType mixed="true">
+                        <xsd:sequence>
+                            <xsd:element name="enrolle" maxOccurs="unbounded">
+                                <xsd:complexType mixed="true">
+                                    <xsd:sequence>
+                                        <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
+                                        <xsd:element name="personalData" type="personalDataType"/>
+                                        <xsd:element name="specialtyName" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="schoolMark" minOccurs="0" type="markType"/>
+                                        <xsd:element name="medicalClearance" minOccurs="0" type="xsd:boolean"/>
+                                        <xsd:element name="ctMarks" minOccurs="0">
+                                            <xsd:complexType mixed="true">
+                                                <xsd:sequence>
+                                                    <xsd:element name="ctMark" minOccurs="3" maxOccurs="3" type="markType"/>
+                                                </xsd:sequence>
+                                            </xsd:complexType>
+                                        </xsd:element>
+                                    </xsd:sequence>
+                                </xsd:complexType>
+                            </xsd:element>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:complexType name="personalDataType">
+        <xsd:sequence>
+            <xsd:element name="name" type="nameType"/>
+            <xsd:element name="surname" type="nameType"/>
+            <xsd:element name="patronymic" type="nameType"/>
+            <xsd:element name="gender" type="genderType"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:simpleType name="nameType">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:pattern value="[A-Za-zА-Яа-я]+(([',. -])?[A-Za-zА-Яа-я]+)*"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="wordType">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:pattern value="[A-Za-zА-Яа-я]+"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="markType">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+            <xsd:maxInclusive value="100"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="totalMarkType">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+            <xsd:maxInclusive value="400"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+    <xsd:simpleType name="genderType">
+        <xsd:restriction base="xsd:normalizedString">
+            <xsd:enumeration value="MALE"/>
+            <xsd:enumeration value="FEMALE"/>
+        </xsd:restriction>
+    </xsd:simpleType>
+
+</xsd:schema>
