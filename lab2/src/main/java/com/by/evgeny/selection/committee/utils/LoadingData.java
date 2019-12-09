@@ -19,7 +19,7 @@ import java.io.IOException;
 
 public class LoadingData {
 
-    private static final File xsdFile = new File("src/main/resources/out.xsd");
+    private static final File xsdFile = new File("src/main/resources/SelectionCommittee.xsd");
 
     public SelectionCommittee loadDataFromXml(String xmlFile) throws XmlException, NotFoundException {
         try {
