@@ -1,11 +1,13 @@
 package com.by.evgeny.selection.committee.controller;
 import com.by.evgeny.selection.committee.entity.SelectionCommittee;
+import com.by.evgeny.selection.committee.exceptions.XmlException;
 import com.by.evgeny.selection.committee.migration.EnrolleMigration;
 import com.by.evgeny.selection.committee.migration.FacultyMigration;
 import com.by.evgeny.selection.committee.migration.SpecialityMigration;
 import com.by.evgeny.selection.committee.migration.StudentMigration;
 import com.by.evgeny.selection.committee.singleton.DataBase;
 import com.by.evgeny.selection.committee.utils.LoadingData;
+import com.by.evgeny.selection.committee.writer.XmlWriter;
 
 public class Controller {
 
@@ -20,6 +22,15 @@ public class Controller {
         catch (Exception e){
             System.out.println(e.getMessage());
         }
+
+//        selectionCommittee = Initialization.Init();
+//
+//        var kek = new XmlWriter<SelectionCommittee>();
+//        try {
+//            kek.write(selectionCommittee, "SelectionCommittee.xml");
+//        } catch (XmlException e) {
+//            System.out.println(e.getMessage());
+//        }
 
         try {
             var facultyMigration = new FacultyMigration(DataBase.getInstance().getConnection());

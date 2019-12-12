@@ -14,7 +14,7 @@ public class DataBase {
     private Connection connection;
     private boolean connected;
 
-    private final String url = "jdbc:mysql://localhost/epam?user=root&password=Ab123456cD";
+    private final String url = "jdbc:mysql://localhost/epam_lab?user=root&password=Ab123456cD";
 
     private DataBase() {
     }

@@ -2,12 +2,14 @@
     <Specialities>
         <speciality>
             <name>SWIT</name>
+            <facultyId>43</facultyId>
             <places>30</places>
             <enrolled>0</enrolled>
-            <id>510</id>
+            <id>511</id>
         </speciality>
         <speciality>
             <name>CS</name>
+            <facultyId>42</facultyId>
             <places>40</places>
             <enrolled>0</enrolled>
             <id>535</id>
@@ -32,7 +34,7 @@
                 <patronymic>Ivanovich</patronymic>
                 <gender>MALE</gender>
             </personalData>
-            <specialtyName>SWIT</specialtyName>
+            <specialtyId>510</specialtyId>
             <ticketNo>85100090</ticketNo>
             <totalMark>150</totalMark>
         </student>
@@ -44,7 +46,7 @@
                 <patronymic>Petrovich</patronymic>
                 <gender>FEMALE</gender>
             </personalData>
-            <specialtyName>CS</specialtyName>
+            <specialtyId>535</specialtyId>
             <ticketNo>85100001</ticketNo>
             <totalMark>400</totalMark>
         </student>
@@ -58,7 +60,7 @@
                 <patronymic>Ivanovich</patronymic>
                 <gender>MALE</gender>
             </personalData>
-            <specialtyName>SWIT</specialtyName>
+            <specialtyId>510</specialtyId>
             <schoolMark>40</schoolMark>
             <medicalClearance>true</medicalClearance>
             <ctMarks>
@@ -75,7 +77,7 @@
                 <patronymic>Petrovich</patronymic>
                 <gender>FEMALE</gender>
             </personalData>
-            <specialtyName>CS</specialtyName>
+            <specialtyId>535</specialtyId>
             <schoolMark>100</schoolMark>
             <medicalClearance>false</medicalClearance>
             <ctMarks>

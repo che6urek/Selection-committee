@@ -13,8 +13,8 @@ public class Enrolle extends Person {
     private int schoolMark;
     private boolean medicalClearance;
 
-    public Enrolle(int[] ctMarks, int schoolMark, boolean medicalClearance, PersonalData personalData, String specialtyName) {
-        super(personalData, specialtyName);
+    public Enrolle(int[] ctMarks, int schoolMark, boolean medicalClearance, PersonalData personalData, int specialtyId) {
+        super(personalData, specialtyId);
         if(ctMarks.length != 3) {
             this.ctMarks = Arrays.copyOf(ctMarks, 3);
         }

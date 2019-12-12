@@ -14,7 +14,8 @@ public class SpecialityMigration {
     private static final Logger logger = LogManager.getLogger(SpecialityMigration.class);
 
     private static final String TABLE = "specialities";
-    private static final String INSERT_QUERY = "INSERT INTO " + TABLE + " (id, name, places, enrolled) VALUES (?,?,?,?);";
+    private static final String INSERT_QUERY = "INSERT INTO " + TABLE + " (id, name, facultyId, places, enrolled) " +
+            "VALUES (?,?,?,?,?);";
 
     private Connection dbConnection;
 
@@ -42,8 +43,9 @@ public class SpecialityMigration {
             PreparedStatement statement = dbConnection.prepareStatement(INSERT_QUERY);
             statement.setInt(1, speciality.getId());
             statement.setString(2, speciality.getName());
-            statement.setInt(3, speciality.getPlaces());
-            statement.setInt(4, speciality.getEnrolled());
+            statement.setInt(3, speciality.getFacultyId());
+            statement.setInt(4, speciality.getPlaces());
+            statement.setInt(5, speciality.getEnrolled());
             statement.executeUpdate();
             statement.close();
         }

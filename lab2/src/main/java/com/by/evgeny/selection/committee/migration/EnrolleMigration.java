@@ -13,9 +13,9 @@ public class EnrolleMigration {
 
     private static final Logger logger = LogManager.getLogger(FacultyMigration.class);
 
-    private static final String TABLE = "enrolles";
+    private static final String TABLE = "enrollees";
     private static final String INSERT_QUERY = "INSERT INTO " + TABLE +
-            " (id, name, surname, patronomic, gender, speciality, schoolMark, ctMark1, ctMark2, ctMark3, medicalClearance)" +
+            " (id, name, surname, patronomic, gender, specialityId, schoolMark, ctMark1, ctMark2, ctMark3, medicalClearance)" +
             " VALUES (?,?,?,?,?,?,?,?,?,?,?);";
 
     private Connection dbConnection;
@@ -47,7 +47,7 @@ public class EnrolleMigration {
             statement.setString(3, enrolle.getPersonalData().getSurname());
             statement.setString(4, enrolle.getPersonalData().getPatronymic());
             statement.setString(5, enrolle.getPersonalData().getGender().toString());
-            statement.setString(6, enrolle.getSpecialtyName());
+            statement.setInt(6, enrolle.getSpecialtyId());
             statement.setInt(7, enrolle.getSchoolMark());
             statement.setInt(8, enrolle.getCtMarks()[0]);
             statement.setInt(9, enrolle.getCtMarks()[1]);

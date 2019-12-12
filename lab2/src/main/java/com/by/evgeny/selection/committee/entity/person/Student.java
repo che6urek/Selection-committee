@@ -7,14 +7,10 @@ public class Student extends Person {
     private int ticketNo;
     private int totalMark;
 
-    public Student(PersonalData personalData, String specialtyName, int ticketNo, int totalMark) {
-        super(personalData, specialtyName);
+    public Student(PersonalData personalData, int specialtyId, int ticketNo, int totalMark) {
+        super(personalData, specialtyId);
         this.ticketNo = ticketNo;
         this.totalMark = totalMark;
-    }
-
-    public Student(PersonalData personalData, String specialtyName, int totalMark) {
-        this(personalData, specialtyName, 0, totalMark);
     }
 
     public Student() {

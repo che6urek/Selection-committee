@@ -10,6 +10,7 @@
                                 <xsd:complexType mixed="true">
                                     <xsd:sequence>
                                         <xsd:element name="name" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="facultyId" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="places" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="enrolled" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
@@ -41,7 +42,7 @@
                                     <xsd:sequence>
                                         <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="personalData" type="personalDataType"/>
-                                        <xsd:element name="specialtyName" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="specialtyId" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="ticketNo" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="totalMark" minOccurs="0" type="totalMarkType"/>
                                     </xsd:sequence>
@@ -58,7 +59,7 @@
                                     <xsd:sequence>
                                         <xsd:element name="id" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="personalData" type="personalDataType"/>
-                                        <xsd:element name="specialtyName" minOccurs="0" type="wordType"/>
+                                        <xsd:element name="specialtyId" minOccurs="0" type="xsd:nonNegativeInteger"/>
                                         <xsd:element name="schoolMark" minOccurs="0" type="markType"/>
                                         <xsd:element name="medicalClearance" minOccurs="0" type="xsd:boolean"/>
                                         <xsd:element name="ctMarks" minOccurs="0">

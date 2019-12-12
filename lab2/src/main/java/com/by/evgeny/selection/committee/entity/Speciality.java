@@ -5,12 +5,14 @@ import java.io.Serializable;
 public class Speciality implements Serializable {
 
     private String name;
+    private int facultyId;
     private int places;
     private int enrolled;
     private int id;
 
-    public Speciality(String name, int places, int enrolled, int id) {
+    public Speciality(String name, int facultyId, int places, int enrolled, int id) {
         this.name = name;
+        this.facultyId = facultyId;
         this.places = places;
         this.enrolled = enrolled;
         this.id = id;
@@ -18,6 +20,14 @@ public class Speciality implements Serializable {
 
     public Speciality() {
 
+    }
+
+    public int getFacultyId() {
+        return facultyId;
+    }
+
+    public void setFacultyId(int facultyId) {
+        this.facultyId = facultyId;
     }
 
     public int getEnrolled() {

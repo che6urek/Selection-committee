@@ -15,7 +15,7 @@ public class StudentMigration {
 
     private static final String TABLE = "students";
     private static final String INSERT_QUERY = "INSERT INTO " + TABLE +
-            " (id, name, surname, patronomic, gender, speciality, totalMark, ticketNo)" +
+            " (id, name, surname, patronomic, gender, specialityId, totalMark, ticketNo)" +
             " VALUES (?,?,?,?,?,?,?,?);";
 
     private Connection dbConnection;
@@ -47,7 +47,7 @@ public class StudentMigration {
             statement.setString(3, student.getPersonalData().getSurname());
             statement.setString(4, student.getPersonalData().getPatronymic());
             statement.setString(5, student.getPersonalData().getGender().toString());
-            statement.setString(6, student.getSpecialtyName());
+            statement.setInt(6, student.getSpecialtyId());
             statement.setInt(7, student.getTotalMark());
             statement.setInt(8, student.getTicketNo());
             statement.executeUpdate();

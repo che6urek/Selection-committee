@@ -18,20 +18,20 @@ public class Initialization {
         var specialities = new ArrayList<Speciality>();
 
         enrollees.add(new Enrolle(new int[] {10, 20, 30}, 40, true,
-                new PersonalData("Ivanov", "Ivan", "Ivanovich", Gender.MALE), "SWIT"));
+                new PersonalData("Ivanov", "Ivan", "Ivanovich", Gender.MALE), 510));
         enrollees.add(new Enrolle(new int[] {100, 100, 100}, 100, false,
-                new PersonalData("Petrov", "Petr", "Petrovich", Gender.FEMALE), "CS"));
+                new PersonalData("Petrov", "Petr", "Petrovich", Gender.FEMALE), 535));
 
         students.add(new Student(new PersonalData("Ivanov", "Ivan", "Ivanovich", Gender.MALE),
-                "SWIT", 85100090, 150));
+                510, 85100090, 150));
         students.add(new Student(new PersonalData("Petrov", "Petr", "Petrovich", Gender.FEMALE),
-                "CS", 85100001, 400));
+                535, 85100001, 400));
 
         faculties.add(new Faculty("CSaN", 41));
         faculties.add(new Faculty("CT", 42));
 
-        specialities.add(new Speciality("SWIT", 30, 0, 510));
-        specialities.add(new Speciality("CS", 40, 0, 535));
+        specialities.add(new Speciality("SWIT", 41, 30, 0, 510));
+        specialities.add(new Speciality("CS", 42, 40, 0, 535));
 
         var selectionCommittee = new SelectionCommittee();
 
